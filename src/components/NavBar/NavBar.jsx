@@ -12,9 +12,12 @@ const NavBar = ({ user, handleLogout }) => {
 						Genshin Builds
 					</Link>
 				</div>
-				<ul className="nav nav-pills nav-fill">
+				<ul className="justify-content-center nav nav-pills nav-fill">
 					<li className="nav-item">
 						<Link className="nav-link active" aria-current="page" to="/">Home</Link>
+					</li>
+					<li className="nav-item">
+						<Link className="nav-link" aria-current="page" to="/characters">Characters</Link>
 					</li>
 					{ !user && 
 						<>
