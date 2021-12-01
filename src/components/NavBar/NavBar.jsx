@@ -19,7 +19,7 @@ const NavBar = ({ user, handleLogout }) => {
 					<li className="nav-item">
 						<Link className="nav-link disabled" aria-current="page" to="/characters">Characters</Link>
 					</li>
-					{ !user && 
+					{!user &&
 						<>
 							<li className="nav-item">
 								<Link className="nav-link" aria-current="page" to="/login">Login</Link>
@@ -29,7 +29,7 @@ const NavBar = ({ user, handleLogout }) => {
 							</li>
 						</>
 					}
-					{ user && 
+					{user &&
 						<li className="nav-item">
 							<Link to='' className="nav-link" onClick={handleLogout}>Log Out</Link>
 						</li>
