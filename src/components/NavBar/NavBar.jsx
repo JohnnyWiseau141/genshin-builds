@@ -4,36 +4,35 @@ import { Link } from 'react-router-dom'
 const NavBar = ({ user, handleLogout }) => {
 	return (
 		<>
-			{user ? (
-				<nav>
-					<div>
-						<ul>
-							<li>
-								Welcome, {user.name}
+			<nav className="navbar navbar-light bg-light">
+				<div>
+					<Link to="/">
+						{/* Temporary Image */}
+						<img src="https://ih1.redbubble.net/image.1816083712.5142/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="placeholder" width="30" height="24" className="d-inline-block align-text-top" />
+						Genshin Builds
+					</Link>
+				</div>
+				<ul className="nav nav-pills nav-fill">
+					<li className="nav-item">
+						<Link className="nav-link active" aria-current="page" to="/">Home</Link>
+					</li>
+					{ !user && 
+						<>
+							<li className="nav-item">
+								<Link className="nav-link" aria-current="page" to="/login">Login</Link>
 							</li>
-							<li>
-                <Link to="/users">Users</Link>
-              </li>
-							<li>
-								<Link to='' onClick={handleLogout}>LOG OUT</Link>
+							<li className="nav-item">
+								<Link className="nav-link" aria-current="page" to="/signup">Sign Up</Link>
 							</li>
-						</ul>
-					</div>
-				</nav>
-			) : (
-				<nav>
-					<div>
-						<ul>
-							<li>
-								<Link to="/login">Log In</Link>
-							</li>
-							<li>
-								<Link to="/signup">Sign Up</Link>
-							</li>
-						</ul>
-					</div>
-				</nav>
-			)}
+						</>
+					}
+					{ user && 
+						<li className="nav-item">
+							<Link to='' className="nav-link" onClick={handleLogout}>Log Out</Link>
+						</li>
+					}
+				</ul>
+			</nav>
 		</>
 	)
 }
