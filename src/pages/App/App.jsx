@@ -7,17 +7,20 @@ import Landing from '../Landing/Landing'
 import Users from '../Users/Users'
 import CharacterIndex from '../CharacterIndex/CharacterIndex'
 import * as authService from '../../services/authService'
-import * as characterService from '../../services/characterService'
+import { getAllCharacters } from '../../services/characterService'
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
-	const navigate = useNavigate()
 	const [characters, setCharacters] = useState([])
+	const navigate = useNavigate()
 
-	useEffect(()=>{
-		characterService.getAllCharacters()
-		.then(characters => setCharacters(characters))
-	},[])
+	useEffect(() => {
+		getAllCharacters()
+			.then(characters => {
+				console.log(characters)
+				setCharacters(characters)
+			})
+	}, [])
 
 	const handleLogout = () => {
 		authService.logout()
@@ -37,10 +40,10 @@ const App = () => {
 				<Route path='/signup' element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/login' element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
-				<Route path='/characterindex' element={<CharacterIndex user={user} />} />
+				<Route path='/characters' element={<CharacterIndex user={user} characters={characters} />} />
 			</Routes>
 		</>
 	);
 }
- 
+
 export default App;

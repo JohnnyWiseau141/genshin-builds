@@ -1,8 +1,8 @@
 import * as tokenService from '../services/tokenService'
-const BASE_URL = 'https://api.genshin.dev/'
+const BASE_URL = '/api/characters'
 
 function getAllCharacters() {
-   return fetch(`${BASE_URL}/characters`, {
+   return fetch(BASE_URL, {
       headers: { Authorization: `Bearer ${tokenService.getToken()}` }
    })
       .then(res => res.json())
