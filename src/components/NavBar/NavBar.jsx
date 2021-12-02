@@ -8,7 +8,7 @@ const NavBar = ({ user, handleLogout }) => {
 				<div>
 					<Link to="/">
 						{/* Temporary Image */}
-						<img src="https://ih1.redbubble.net/image.1816083712.5142/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="placeholder" width="30" height="24" className="d-inline-block align-text-top" />
+						<img src="https://ih1.redbubble.net/image.1816083712.5142/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg" alt="placeholder" width="30" height="30" className="d-inline-block align-text-top" />
 						Genshin Builds
 					</Link>
 				</div>
