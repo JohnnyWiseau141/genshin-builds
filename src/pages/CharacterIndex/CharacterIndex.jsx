@@ -1,10 +1,15 @@
+import styles from './CharacterIndex.module.css'
+import { Link } from 'react-router-dom'
+
 const CharacterIndex = (props) => {
   return (  
     <>
-    <div className="characters-container">
+    <div className={styles.container}>
       {props.characters.map(character =>
-        <div key={character._id}>
-              <img src={`https://api.genshin.dev/characters/${character}/icon`} alt="icon" />
+        <div key={character} className="character-image">
+              <Link to={`/characters/${character}`}> 
+                <img src={`https://api.genshin.dev/characters/${character}/icon`} alt="icon" />
+              </Link>
         </div>
       )}
     </div>
