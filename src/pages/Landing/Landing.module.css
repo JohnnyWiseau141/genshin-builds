@@ -4,8 +4,8 @@ body{
   background-image: url("https://wallpapercave.com/wp/wp7486978.jpg");
   background-size: cover;
 }
-.container {
-  display: flex;
+.landing-container {
+  display: grid;
   align-items: center;
   flex-direction: column;
 }

@@ -14,10 +14,10 @@ const NavBar = ({ user, handleLogout }) => {
 				</div>
 				<ul className="nav nav-pills">
 					<li className="nav-item">
-						<Link className="nav-link active" aria-current="page" to="/">Home</Link>
+						<Link className="nav-link" aria-current="page" to="/">Home</Link>
 					</li>
 					<li className="nav-item">
-						<Link className="nav-link disabled" aria-current="page" to="/characters">Characters</Link>
+						<Link className="nav-link" aria-current="page" to="/characters">Characters</Link>
 					</li>
 					{!user &&
 						<>
