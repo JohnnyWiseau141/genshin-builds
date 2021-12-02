@@ -14,6 +14,7 @@ import { router as authRouter } from './routes/auth.js'
 import { router as charactersRouter } from './routes/characters.js'
 import { router as profilesRouter } from './routes/profiles.js'
 import { router as weaponsRouter } from './routes/weapons.js'
+import { router as buildsRouter } from './routes/builds.js'
 
 app.use(cors())
 app.use(logger('dev'))
@@ -24,6 +25,7 @@ app.use('/api/auth', authRouter)
 app.use('/api/characters', charactersRouter)
 app.use('/api/profiles', profilesRouter)
 app.use('/api/weapons', weaponsRouter)
+app.use('/api/builds', buildsRouter)
 
 app.get('/*', function (req, res) {
   res.sendFile(
