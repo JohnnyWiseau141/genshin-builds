@@ -8,6 +8,12 @@ function getAllWeapons() {
       .then(res => res.json())
 }
 
+function getWeaponDetails(weapon) {
+  return fetch(`${BASE_URL}/${weapon}`)
+  .then(res => res.json())
+}
+
 export {
-   getAllWeapons
+   getAllWeapons,
+   getWeaponDetails
 }
