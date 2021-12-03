@@ -8,7 +8,7 @@ const WeaponIndex = (props) => {
       {props.weapons.map(weapon =>
         <div key={weapon} className="weapon-image">
               <Link to={`/weaponDetails`} state={weapon}> 
-                <img src={`https://api.genshin.dev/weapons/${weapon}/icon`} alt="icon" />
+                <img className={styles.weaponIcon} src={`https://api.genshin.dev/weapons/${weapon}/icon`} alt="icon" />
               </Link>
         </div>
       )}
