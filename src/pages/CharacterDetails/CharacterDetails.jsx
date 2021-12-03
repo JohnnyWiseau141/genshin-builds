@@ -21,7 +21,8 @@ const CharacterDetails = (props) => {
       <h1>Name: {characterDetails.name}</h1>
       <h1>Vision: {characterDetails.vision}</h1>
       <h1>Weapon: {characterDetails.weapon}</h1>
-      <h1>Nation: {characterDetails.nation}</h1>
+      <h1>Nation: {characterDetails.nation}</h1> 
+      <h1>Rarity: {characterDetails.rarity}</h1> 
     </div>
     </>
   );
