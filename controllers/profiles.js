@@ -4,7 +4,6 @@ function show(req, res) {
    Profile.findById(req.params.id)
       .then(profile => {
          res.json(profile)
-         console.log(profile)
       })
 }
 
