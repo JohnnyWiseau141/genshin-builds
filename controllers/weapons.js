@@ -12,6 +12,17 @@ function index(req, res){
    })
 }
 
+function show(req, res){
+  axios.get(`${BASE_URL}/weapons/${req.params.weapon}`)
+  .then (weaponInfo =>{
+     res.json(weaponInfo.data)
+  })
+  .catch(function (error) {
+     console.log(error);
+  })
+}
+
 export {
-   index
+   index,
+   show
 }
