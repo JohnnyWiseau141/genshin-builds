@@ -6,6 +6,7 @@ const router = Router()
 
 /*---------- Public Routes ----------*/
 router.get('/', weaponsCtrl.index)
+router.get('/:weapon', weaponsCtrl.show)
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)

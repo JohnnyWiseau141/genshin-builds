@@ -9,15 +9,16 @@ import ProfilePage from '../ProfilePage/ProfilePage'
 import CharacterIndex from '../CharacterIndex/CharacterIndex'
 import WeaponIndex from '../WeaponIndex/WeaponIndex'
 import CharacterDetails from '../CharacterDetails/CharacterDetails'
+import WeaponDetails from '../WeaponDetails/WeaponDetails'
 import * as authService from '../../services/authService'
 import { getAllCharacters } from '../../services/characterService'
 import { getAllWeapons } from '../../services/weaponService'
+
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
 	const [characters, setCharacters] = useState([])
 	const [weapons, setWeapons] = useState([])
-	const [characterDetails, setCharacterDetails] = useState([])
 	const navigate = useNavigate()
 
 	useEffect(() => {
@@ -56,6 +57,7 @@ const App = () => {
 				<Route path='/characters' element={<CharacterIndex user={user} characters={characters} />} />
 				<Route path='/weapons' element={<WeaponIndex user={user} weapons={weapons} />} />
 				<Route path='/characterDetails' element={<CharacterDetails user={user} characters={characters} />} />
+				<Route path='/weaponDetails' element={<WeaponDetails user={user} weapons={weapons} />} />
 			</Routes>
 		</>
 	);
