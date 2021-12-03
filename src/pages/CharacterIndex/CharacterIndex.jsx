@@ -9,6 +9,7 @@ const CharacterIndex = (props) => {
         <div key={character} className={styles.icon}>
               <Link to={`/characterDetails`} state={character}> 
                 <img className={styles.characterIcon} src={`https://api.genshin.dev/characters/${character}/icon`} alt="icon" />
+                <div>{character}</div>
               </Link>
         </div>
       )}
