@@ -7,6 +7,7 @@ import Landing from '../Landing/Landing'
 import Users from '../Users/Users'
 import CharacterIndex from '../CharacterIndex/CharacterIndex'
 import WeaponIndex from '../WeaponIndex/WeaponIndex'
+import CharacterDetails from '../CharacterDetails/CharacterDetails'
 import * as authService from '../../services/authService'
 import { getAllCharacters } from '../../services/characterService'
 import { getAllWeapons } from '../../services/weaponService'
@@ -15,12 +16,12 @@ const App = () => {
 	const [user, setUser] = useState(authService.getUser())
 	const [characters, setCharacters] = useState([])
 	const [weapons, setWeapons] = useState([])
+	const [characterDetails, setCharacterDetails] = useState([])
 	const navigate = useNavigate()
 
 	useEffect(() => {
 		getAllCharacters()
 			.then(characters => {
-				console.log(characters)
 				setCharacters(characters)
 			})
 	}, [])
@@ -28,7 +29,6 @@ const App = () => {
 	useEffect(() => {
 		getAllWeapons()
 			.then(weapons => {
-				console.log(weapons)
 				setWeapons(weapons)
 			})
 	}, [])
@@ -53,6 +53,7 @@ const App = () => {
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
 				<Route path='/characters' element={<CharacterIndex user={user} characters={characters} />} />
 				<Route path='/weapons' element={<WeaponIndex user={user} weapons={weapons} />} />
+				<Route path='/characterDetails' element={<CharacterDetails user={user} characters={characters} />} />
 			</Routes>
 		</>
 	);

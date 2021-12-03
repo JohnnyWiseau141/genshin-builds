@@ -7,7 +7,7 @@ const CharacterIndex = (props) => {
     <div className={styles.container}>
       {props.characters.map(character =>
         <div key={character} className="character-image">
-              <Link to={`/characters/${character}`}> 
+              <Link to={`/characterDetails`} state={character}> 
                 <img src={`https://api.genshin.dev/characters/${character}/icon`} alt="icon" />
               </Link>
         </div>

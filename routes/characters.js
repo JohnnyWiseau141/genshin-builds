@@ -6,6 +6,7 @@ const router = Router()
 
 /*---------- Public Routes ----------*/
 router.get('/', charactersCtrl.index)
+router.get('/:character', charactersCtrl.show)
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
