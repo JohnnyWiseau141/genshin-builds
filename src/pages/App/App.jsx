@@ -5,6 +5,7 @@ import Signup from '../Signup/Signup'
 import Login from '../Login/Login'
 import Landing from '../Landing/Landing'
 import Users from '../Users/Users'
+import ProfilePage from '../ProfilePage/ProfilePage'
 import CharacterIndex from '../CharacterIndex/CharacterIndex'
 import WeaponIndex from '../WeaponIndex/WeaponIndex'
 import CharacterDetails from '../CharacterDetails/CharacterDetails'
@@ -51,6 +52,7 @@ const App = () => {
 				<Route path='/signup' element={<Signup handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/login' element={<Login handleSignupOrLogin={handleSignupOrLogin} />} />
 				<Route path='/users' element={user ? <Users /> : <Navigate to='/login' />} />
+				<Route path='/profile' element={user ? <ProfilePage user={user} /> : <Navigate to='/login' />} />
 				<Route path='/characters' element={<CharacterIndex user={user} characters={characters} />} />
 				<Route path='/weapons' element={<WeaponIndex user={user} weapons={weapons} />} />
 				<Route path='/characterDetails' element={<CharacterDetails user={user} characters={characters} />} />

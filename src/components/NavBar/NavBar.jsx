@@ -17,7 +17,13 @@ const NavBar = ({ user, handleLogout }) => {
 						<Link className="nav-link" aria-current="page" to="/">Home</Link>
 					</li>
 					<li className="nav-item">
+						<Link className="nav-link" aria-current="page" to="/profile">My Profile</Link>
+					</li>
+					<li className="nav-item">
 						<Link className="nav-link" aria-current="page" to="/characters">Characters</Link>
+					</li>
+					<li className="nav-item">
+						<Link className="nav-link" aria-current="page" to="/weapons">Weapons</Link>
 					</li>
 					{!user &&
 						<>
