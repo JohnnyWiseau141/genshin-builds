@@ -3,7 +3,7 @@
   flex-flow: row wrap;
 }
 
-img {
+.weaponIcon {
   float: left;
   width:  100px;
   height: 100px;
