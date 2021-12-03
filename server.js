@@ -23,7 +23,7 @@ app.use(express.json())
 app.use('/api/users', usersRouter)
 app.use('/api/auth', authRouter)
 app.use('/api/characters', charactersRouter)
-app.use('/api/profiles', profilesRouter)
+app.use('/api/profile', profilesRouter)
 app.use('/api/weapons', weaponsRouter)
 app.use('/api/builds', buildsRouter)
 
