@@ -8,6 +8,12 @@ function getAllCharacters() {
       .then(res => res.json())
 }
 
+function getCharacterDetails(character) {
+   return fetch(`${BASE_URL}/${character}`)
+   .then(res => res.json())
+}
+
 export {
-   getAllCharacters
+   getAllCharacters,
+   getCharacterDetails
 }

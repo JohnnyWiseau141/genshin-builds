@@ -12,6 +12,18 @@ function index(req, res){
    })
 }
 
+function show(req, res){
+   axios.get(`${BASE_URL}/characters/${req.params.character}`)
+   .then (characterInfo =>{
+      res.json(characterInfo.data)
+      console.log(characterInfo.data)
+   })
+   .catch(function (error) {
+      console.log(error);
+   })
+}
+
 export {
-   index
+   index,
+   show
 }
