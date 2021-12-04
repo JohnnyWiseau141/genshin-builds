@@ -22,7 +22,18 @@ function show(req, res){
    })
 }
 
+function create(req,res){
+   Character.create(req.body)
+   .then(character => {
+      res.json(character)
+   })
+   .catch(function (error) {
+      console.log(error);
+   })
+}
+
 export {
    index,
-   show
+   show,
+   create
 }

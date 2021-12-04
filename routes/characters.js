@@ -10,5 +10,6 @@ router.get('/:character', charactersCtrl.show)
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
+router.post('/', checkAuth, charactersCtrl.create)
 
 export { router }
