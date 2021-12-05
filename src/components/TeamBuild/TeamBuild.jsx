@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react'
+import React, { Profiler, useEffect, useState } from 'react'
 
 const TeamBuild = (props) => {
-   const userProfile = props.profile
-   const allWeps = props.weapons
+   const userProfile = props.user
+   // const allWeps = props.weapons
    const [profile, setProfile] = useState(userProfile)
-   const [weapons, setWeapons] = useState(allWeps); 
+   // const [weapons, setWeapons] = useState(allWeps); 
    const [teamBuild, setTeamBuild] = useState({})
 
    return (
       <>
          <h2>Team Component Working</h2>
-         {!profile.teamBuilds ? 'Has Builds' : 'Go build something!!'}
+         {!Profiler ? 'Has Builds' : 'Go build something!!'}
       </>
    );
 }

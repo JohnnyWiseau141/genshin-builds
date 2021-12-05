@@ -1,7 +1,7 @@
 import { Profile } from '../models/profile.js'
 import { Character } from '../models/character.js'
 
-function show(req, res) {
+function getMyCharacters(req, res) {
    Profile.findById(req.params.id)
       .populate('characters')
       .then(profile => {
@@ -13,5 +13,5 @@ function show(req, res) {
 }
 
 export {
-   show
+   getMyCharacters
 }

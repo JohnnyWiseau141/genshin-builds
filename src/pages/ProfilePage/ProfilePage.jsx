@@ -1,22 +1,23 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { showProfileDetails } from '../../services/profileService'
+import { showProfileDetails, getMyCharacters } from '../../services/profileService'
 import TeamBuild from '../../components/TeamBuild/TeamBuild'
 import styles from './ProfilePage.module.css'
 
 
 const ProfilePage = (props) => {
-   const allWeps = props.weapons
-   // const allChars = props.characters
-   // console.log(allChars)
-   const [profile, setProfile] = useState({})
-   const [weapons, setWeapons] = useState(allWeps)
-   // const [characters, setCharacters] = useState(allChars)
+   // const allWeps = props.weapons
+   const user = props.user
+   const [profile, setProfile] = useState(user)
+   // const [weapons, setWeapons] = useState(allWeps)
+   const [myCharacters, setMyCharacters] = useState([])
 
    useEffect(() => {
-      showProfileDetails(props.user.profile)
-         .then(userProfile => setProfile(userProfile))
+      getMyCharacters(props.user.profile)
+         .then(ownedCharacters => setMyCharacters(ownedCharacters))
    }, [])
+
+   console.log(myCharacters)
 
    return (
       <>
@@ -24,23 +25,22 @@ const ProfilePage = (props) => {
             <h1>{profile.name}</h1>
             {/* avatar image goes here */}
             {/* edit image here  */}
-            {!profile.characters === [] ?
+            {myCharacters ?
                <>
-                  Has Characters
-                  <div className={styles.characters}>{profile.characters}</div>
-                  {!profile.characters.map(character =>
+                  {myCharacters.map(character =>
+                  <>
                      <div key={character} className={styles.icon}>
-                        <Link to={`/characterDetails`} state={character}>
-                           <img className={styles.characterIcon} src={`https://api.genshin.dev/characters/${character}/icon`} alt="icon" />
-                           <div>{character}</div>
+                        <Link to={`/characterDetails`} state={character.characterName.toLowerCase()}>
+                           <img className={styles.characterIcon} src={`https://api.genshin.dev/characters/${character.characterName.toLowerCase()}/icon`} alt="icon" />
                         </Link>
                      </div>
+                  </>
                   )}
                </>
                :
                'Go collect characters!!'
             }
-            <TeamBuild profile={profile} weapons={weapons} />
+            <TeamBuild user={user} />
          </main>
       </>
    );
