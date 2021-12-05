@@ -10,5 +10,6 @@ router.get('/:weapon', weaponsCtrl.show)
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
+router.post('/', checkAuth, weaponsCtrl.create)
 
 export { router }
