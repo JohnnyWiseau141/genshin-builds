@@ -23,12 +23,23 @@ function show(req, res){
 }
 
 function create(req,res){
-   Character.create(req.body)
-   .then(character => {
-      res.json(character)
-   })
-   .catch(function (error) {
-      console.log(error);
+   //Check to see if character is already in database
+   Character.findOne({characterName: req.body.characterName})
+   .then (character => {
+      if (character){ //if character exists in the database, do the following
+         character.collectedBy.push(req.user.profile)
+         character.save()
+      } else { //if character does not exist in the database, create the character
+         Character.create(req.body)
+         .then(character => {
+            character.collectedBy = req.user.profile
+            character.save()
+            res.json(character)
+         })
+         .catch(function (error) {
+            console.log(error);
+         })
+      }
    })
 }
 
