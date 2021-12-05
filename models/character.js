@@ -5,7 +5,8 @@ const Schema = mongoose.Schema
 const characterSchema = new Schema ({
   characterName: String,
   characterWeaponType: String,
-  characterWeapon: [{type: Schema.Types.ObjectId, ref: 'Weapon'}],
+  characterWeapon: {type: Schema.Types.ObjectId, ref: 'Weapon'},
+  collectedBy: [{type: Schema.Types.ObjectId, ref: 'Profile'}],
   rarity: Number
 })
 
