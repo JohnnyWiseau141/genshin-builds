@@ -23,12 +23,23 @@ function show(req, res){
 }
 
 function create(req, res){
-   Weapon.create(req.body)
-   .then(weapon => {
-      res.json(weapon)
-   })
-   .catch(function (error) {
-      console.log(error);
+   //Check to see if character is already in database
+   Weapon.findOne({weaponName: req.body.weaponName})
+      .then (weapon => {
+         if (weapon){ //if weapon exists in the database, do the following
+            weapon.heldBy.push(req.user.profile)
+            weapon.save()
+         } else { //if weapon does not exist in the database, create the weapon
+            Weapon.create(req.body)
+            .then(weapon => {
+               weapon.heldBy = req.user.profile
+               weapon.save()
+               res.json(weapon)
+            })
+            .catch(function (error) {
+               console.log(error);
+            })
+         }
    })
 }
 
