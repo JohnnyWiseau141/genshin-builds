@@ -31,6 +31,8 @@ const CharacterDetails = (props) => {
     createCharacter(formData)
   }
 
+  
+  
   return (  
     <>
     <div>

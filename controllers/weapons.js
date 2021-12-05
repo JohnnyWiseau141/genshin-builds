@@ -22,7 +22,18 @@ function show(req, res){
   })
 }
 
+function create(req, res){
+   Weapon.create(req.body)
+   .then(weapon => {
+      res.json(weapon)
+   })
+   .catch(function (error) {
+      console.log(error);
+   })
+}
+
 export {
    index,
-   show
+   show,
+   create
 }
