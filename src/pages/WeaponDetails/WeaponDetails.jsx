@@ -20,7 +20,7 @@ const WeaponDetails = (props) => {
 
   const handleClick = evt => {
     setFormData({
-      weaponName: `${weaponDetails.name}`,
+      weaponName: `${location.state}`,
       weaponType: `${weaponDetails.type}`,
       baseAttack: `${weaponDetails.baseAttack}`
     })
