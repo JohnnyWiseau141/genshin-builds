@@ -6,11 +6,17 @@ function getMyCharacters(req, res) {
       .populate('characters')
       .then(profile => {
          Character.find({ collectedBy: req.params.id })
-            .then(characters => {
-               res.json(characters)
+            .then(allCharacters => {
+               profile.characters.push(allCharacters)
+               profile.save()
+                  .then(all => {
+                     res.json(allCharacters)
+                  })
             })
       })
 }
+
+//Characters owned by users will ONLY be pushed when accessing this profile page!!!!!!!!
 
 export {
    getMyCharacters
