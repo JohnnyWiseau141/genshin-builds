@@ -17,8 +17,6 @@ const ProfilePage = (props) => {
          .then(ownedCharacters => setMyCharacters(ownedCharacters))
    }, [])
 
-   console.log(myCharacters)
-
    return (
       <>
          <main className={styles.profile_page}>
@@ -28,13 +26,13 @@ const ProfilePage = (props) => {
             {myCharacters ?
                <>
                   {myCharacters.map(character =>
-                  <>
-                     <div key={character} className={styles.icon}>
-                        <Link to={`/characterDetails`} state={character.characterName.toLowerCase()}>
-                           <img className={styles.characterIcon} src={`https://api.genshin.dev/characters/${character.characterName.toLowerCase()}/icon`} alt="icon" />
-                        </Link>
-                     </div>
-                  </>
+                     <>
+                        <div key={character} className={styles.icon}>
+                           <Link to={`/characterDetails`} state={character.characterName.toLowerCase()}>
+                              <img className={styles.characterIcon} src={`https://api.genshin.dev/characters/${character.characterName.toLowerCase()}/icon`} alt="icon" />
+                           </Link>
+                        </div>
+                     </>
                   )}
                </>
                :
