@@ -23,13 +23,12 @@ function show(req, res){
 }
 
 function create(req,res){
-   //Check to see if character is already in database
    Character.findOne({characterName: req.body.characterName})
    .then (character => {
-      if (character){ //if character exists in the database, do the following
+      if (character) { 
          character.collectedBy.push(req.user.profile)
          character.save()
-      } else { //if character does not exist in the database, create the character
+      } else { 
          Character.create(req.body)
          .then(character => {
             character.collectedBy = req.user.profile
@@ -43,8 +42,20 @@ function create(req,res){
    })
 }
 
+function removeFromCollection(req,res) {
+   Character.findOne({characterName: req.params.character})
+   .then (character => {
+      let index = character.collectedBy.findIndex(function(element){
+         return element.toString() === req.user.profile;
+      })
+      character.collectedBy.splice(index,1)
+      character.save()
+   })
+}
+
 export {
    index,
    show,
-   create
+   create,
+   removeFromCollection
 }

@@ -24,8 +24,19 @@ function createCharacter(characterData){
    .then(res => res.json())
 }
 
+function removeProfileId(character){
+   return fetch(`${BASE_URL}/${character}`,{
+      method:'PATCH',
+      headers: {
+         'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
+      },
+   })
+   .then(res => res.json())
+}
+
 export {
    getAllCharacters,
    getCharacterDetails,
-   createCharacter
+   createCharacter,
+   removeProfileId
 }
