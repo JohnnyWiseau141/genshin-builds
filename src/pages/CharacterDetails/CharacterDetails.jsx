@@ -1,6 +1,6 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom";
-import { createCharacter, getCharacterDetails,  } from '../../services/characterService'
+import { createCharacter, getCharacterDetails, removeProfileId  } from '../../services/characterService'
 import styles from './CharacterDetails.module.css'
 
 const CharacterDetails = (props) => {
@@ -31,7 +31,21 @@ const CharacterDetails = (props) => {
     createCharacter(formData)
   }
 
-  
+  // const addtoCollection = () => {
+  //   <button 
+  //         onClick={handleClick}
+  //         type="submit"  
+  //         className={styles.addCharBtn} 
+  //       >
+  //         Add to Collection
+  //       </button>
+  // }
+
+  const removeFromCollection = evt => {
+    console.log('hello')
+    evt.preventDefault()
+    removeProfileId(location.state)
+  }
   
   return (  
     <>
@@ -53,6 +67,13 @@ const CharacterDetails = (props) => {
           className={styles.addCharBtn} 
         >
           Add to Collection
+        </button>
+        <button 
+          onClick={removeFromCollection}
+          type="submit"  
+          className={styles.addCharBtn} 
+        >
+          Remove from Collection
         </button>
       </form>
     </div>
