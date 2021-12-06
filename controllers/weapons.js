@@ -43,8 +43,23 @@ function create(req, res){
    })
 }
 
+function removeWeapon(req, res) {
+   Weapon.findOne({weaponName: req.params.weapon})
+      .then (weapon => {
+         let index = weapon.heldBy.findIndex(function(element){
+            return element.toString() === req.user.profile;
+         })
+         weapon.heldBy.splice(index,1)
+         weapon.save()
+         })
+         .catch(function (error) {
+            console.log(error);
+   })
+}
+
 export {
    index,
    show,
-   create
+   create,
+   removeWeapon
 }
