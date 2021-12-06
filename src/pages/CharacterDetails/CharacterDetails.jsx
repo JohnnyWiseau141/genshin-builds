@@ -10,6 +10,7 @@ const CharacterDetails = (props) => {
     characterWeaponType: '',
     rarity: '',
   })
+  const [handler, setHandler] = useState(true)
 
   let location = useLocation()
 
@@ -18,33 +19,33 @@ const CharacterDetails = (props) => {
     .then(characterDetails => setCharacterDetails(characterDetails))
   },[])
 
-  const handleClick = evt => {
-    setFormData({
-      characterName: `${location.state}`,
-      characterWeaponType: `${characterDetails.weapon}`,
-      rarity: `${characterDetails.rarity}`
-    })
-  }
+  // const handleClick = evt => {
+  //   setFormData({
+  //     characterName: `${location.state}`,
+  //     characterWeaponType: `${characterDetails.weapon}`,
+  //     rarity: `${characterDetails.rarity}`
+  //   })
+  // }
 
   const handleSubmit = evt => {
     evt.preventDefault()
     createCharacter(formData)
   }
 
-  // const addtoCollection = () => {
-  //   <button 
-  //         onClick={handleClick}
-  //         type="submit"  
-  //         className={styles.addCharBtn} 
-  //       >
-  //         Add to Collection
-  //       </button>
-  // }
+  const addToCollection = evt => {
+    setFormData({
+      characterName: `${location.state}`,
+      characterWeaponType: `${characterDetails.weapon}`,
+      rarity: `${characterDetails.rarity}`
+    })
+    setHandler(false)
+    console.log(handler,'add to Collection')
+  }
 
   const removeFromCollection = evt => {
-    console.log('hello')
-    evt.preventDefault()
     removeProfileId(location.state)
+    setHandler(true)
+    console.log(handler, 'remove from collection')
   }
   
   return (  
@@ -61,21 +62,23 @@ const CharacterDetails = (props) => {
     </div>
     <div>
       <form onSubmit={handleSubmit}>
-        <button 
-          onClick={handleClick}
-          type="submit"  
-          className={styles.addCharBtn} 
-        >
-          Add to Collection
-        </button>
-        <button 
-          onClick={removeFromCollection}
-          type="submit"  
-          className={styles.addCharBtn} 
-        >
-          Remove from Collection
-        </button>
+        <div>
+          <button 
+            onClick={addToCollection}
+            type="submit"  
+            className={styles.addCharBtn} 
+          > 
+            Add to Collection
+          </button>
+        </div>
       </form>
+          <button 
+            onClick={removeFromCollection}
+            type="submit"  
+            className={styles.removeCharBtn} 
+          >
+            Remove from Collection
+        </button>
     </div>
     </>
   );
