@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom";
-import { createWeapon, getWeaponDetails } from '../../services/weaponService';
+import { createWeapon, getWeaponDetails, removeWeaponFromHeld } from '../../services/weaponService';
 import styles from './WeaponDetails.module.css'
 
 const WeaponDetails = (props) => {
@@ -31,6 +31,11 @@ const WeaponDetails = (props) => {
     createWeapon(formData)
   }
 
+  const removeFromCollection = evt => {
+    console.log('working')
+    evt.preventDefault()
+    removeWeaponFromHeld(location.state)
+  }
 
 
   return ( 
@@ -56,6 +61,13 @@ const WeaponDetails = (props) => {
           className={styles.addWeapBtn} 
         >
           Add to Collection
+        </button>
+        <button 
+          onClick={removeFromCollection}
+          type="submit"  
+          className={styles.addWeapBtn} 
+        >
+          Remove from Collection
         </button>
       </form>
     </div>

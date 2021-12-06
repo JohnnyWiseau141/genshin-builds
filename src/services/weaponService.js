@@ -25,8 +25,20 @@ function createWeapon(weaponData){
    .then(res => res.json())
 }
 
+function removeWeaponFromHeld(weapon) {
+   return fetch(`${BASE_URL}/${weapon}`, {
+      method: 'PATCH',
+      headers: {
+         'Authorization': `Bearer ${tokenService.getToken()}`,
+         'Content-Type': 'application/json'
+      },
+   })
+   .then(res => res.json())
+}
+
 export {
    getAllWeapons,
    getWeaponDetails,
-   createWeapon
+   createWeapon,
+   removeWeaponFromHeld
 }
