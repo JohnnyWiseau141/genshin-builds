@@ -59,11 +59,19 @@ function create(req, res) {
 function removeFromCollection(req, res) {
    Character.findOne({ characterName: req.params.character })
       .then(character => {
-         let index = character.collectedBy.findIndex(function (element) {
-            return element.toString() === req.user.profile;
+         Profile.findById(req.user.profile)
+         .then(profile => {
+            let index1 = character.collectedBy.findIndex(function (element) {
+               return element.toString() === req.user.profile;
+            })
+            character.collectedBy.splice(index1, 1)
+            character.save()
+            let index2 = profile.characters.findIndex(function (element){
+               return element.toString() === req.user.profile;
+            })
+            profile.characters.splice(index2,1)
+            profile.save()
          })
-         character.collectedBy.splice(index, 1)
-         character.save()
       })
 }
 
