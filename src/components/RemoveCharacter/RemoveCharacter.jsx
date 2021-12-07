@@ -5,7 +5,7 @@ import styles from './RemoveCharacter.module.css'
 const RemoveCharacter = (props) => {
   const removeFromCollection = evt => {
     removeProfileId(props.detailId)
-    props.setHandler(true)
+    props.handleClick(true)
   }
 
   return (  
