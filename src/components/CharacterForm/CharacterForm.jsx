@@ -20,7 +20,7 @@ const CharacterForm = (props) => {
       characterWeaponType: `${props.characterDetails.weapon}`,
       rarity: `${props.characterDetails.rarity}`
     })
-    props.setHandler(false)
+    props.handleClick(false)
   }
 
   return (

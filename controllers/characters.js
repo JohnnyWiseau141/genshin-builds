@@ -28,7 +28,7 @@ function create(req, res) {
       .then(character => {
          //If character exists
          if (character) {
-            character.collectedBy.push(req.user)
+            character.collectedBy.push(req.user.profile)
             character.save()
             Profile.findById(req.user.profile)
                .then(profile => {
