@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from "react-router-dom";
-import { createCharacter, getCharacterDetails, removeProfileId  } from '../../services/characterService'
+import { getCharacterDetails  } from '../../services/characterService'
 import styles from './CharacterDetails.module.css'
+import CharacterForm from '../../components/CharacterForm/CharacterForm';
+import RemoveCharacter from '../../components/RemoveCharacter/RemoveCharacter';
 
 const CharacterDetails = (props) => {
   const [characterDetails, setCharacterDetails] = useState({})
-  const [formData, setFormData] = useState({
-    characterName: '',
-    characterWeaponType: '',
-    rarity: '',
-  })
+  // const [formData, setFormData] = useState({
+  //   characterName: '',
+  //   characterWeaponType: '',
+  //   rarity: '',
+  // })
   const [handler, setHandler] = useState(true)
 
   let location = useLocation()
@@ -27,26 +29,26 @@ const CharacterDetails = (props) => {
   //   })
   // }
 
-  const handleSubmit = evt => {
-    evt.preventDefault()
-    createCharacter(formData)
-  }
+  // const handleSubmit = evt => {
+  //   evt.preventDefault()
+  //   createCharacter(formData)
+  // }
 
-  const addToCollection = evt => {
-    setFormData({
-      characterName: `${location.state}`,
-      characterWeaponType: `${characterDetails.weapon}`,
-      rarity: `${characterDetails.rarity}`
-    })
-    setHandler(false)
-    console.log(handler,'add to Collection')
-  }
+  // const addToCollection = evt => {
+  //   setFormData({
+  //     characterName: `${location.state}`,
+  //     characterWeaponType: `${characterDetails.weapon}`,
+  //     rarity: `${characterDetails.rarity}`
+  //   })
+  //   setHandler(false)
+  //   console.log(handler,'add to Collection')
+  // }
 
-  const removeFromCollection = evt => {
-    removeProfileId(location.state)
-    setHandler(true)
-    console.log(handler, 'remove from collection')
-  }
+  // const removeFromCollection = evt => {
+  //   removeProfileId(location.state)
+  //   setHandler(true)
+  //   console.log(handler, 'remove from collection')
+  // }
   
   return (  
     <>
@@ -61,7 +63,7 @@ const CharacterDetails = (props) => {
       <h1>Rarity: {characterDetails.rarity}</h1> 
     </div>
     <div>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <div>
           <button 
             onClick={addToCollection}
@@ -71,14 +73,20 @@ const CharacterDetails = (props) => {
             Add to Collection
           </button>
         </div>
-      </form>
-          <button 
+      </form> */}
+
+        <CharacterForm detailId={location.state} characterDetails={characterDetails} setHandler={setHandler}/>
+        
+        <RemoveCharacter detailId={location.state} characterDetails={characterDetails} setHandler={setHandler}/>
+      
+
+          {/* <button 
             onClick={removeFromCollection}
             type="submit"  
             className={styles.removeCharBtn} 
           >
             Remove from Collection
-        </button>
+        </button> */}
     </div>
     </>
   );
