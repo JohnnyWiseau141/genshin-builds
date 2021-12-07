@@ -1,18 +1,21 @@
 import { Profile } from '../models/profile.js'
 import { Character } from '../models/character.js'
 
-function getMyCharacters(req, res) {
+function getProfile(req, res) {
    Profile.findById(req.params.id)
       .then(profile => {
-         Character.find({ collectedBy: req.params.id })
-            .then(allCharacters => {
-               res.json(allCharacters)
-            })
+         res.json(profile)
       })
 }
 
-//Characters owned by users will ONLY be pushed when accessing this profile page!!!!!!!!
+function getMyCharacters(req, res) {
+   Character.find({ collectedBy: req.params.id})
+   .then(characters => {
+      res.json(characters)
+   })
+}
 
 export {
+   getProfile,
    getMyCharacters
 }
