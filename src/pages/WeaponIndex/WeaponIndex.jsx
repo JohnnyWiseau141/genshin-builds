@@ -6,9 +6,9 @@ const WeaponIndex = (props) => {
     <>
     <div className={styles.container}>
       {props.weapons.map(weapon =>
-        <div key={weapon} className="weapon-image">
+        <div key={weapon} className={styles.weaponImage}>
               <Link to={`/weaponDetails`} state={weapon}> 
-                <img className={styles.weaponIcon} src={`https://api.genshin.dev/weapons/${weapon}/icon`} alt="icon" />
+                <img className={styles.weaponIcon} src={`https://api.genshin.dev/weapons/${weapon}/icon`} alt="Weapon" />
                 <div className={styles.box}>{weapon}</div>
               </Link>
         </div>
@@ -19,4 +19,3 @@ const WeaponIndex = (props) => {
 }
  
 export default WeaponIndex;
-
