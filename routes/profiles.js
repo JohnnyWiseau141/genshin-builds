@@ -9,6 +9,7 @@ const router = Router()
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
-router.get('/:id', checkAuth, profilesCtrl.getMyCharacters)
+router.get('/:id', checkAuth, profilesCtrl.getProfile)
+router.get('/:id/characters', checkAuth, profilesCtrl.getMyCharacters)
 
 export { router }
