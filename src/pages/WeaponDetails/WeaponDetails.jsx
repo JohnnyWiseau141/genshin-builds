@@ -18,7 +18,7 @@ const WeaponDetails = (props) => {
     .then(weaponDetails => setWeaponDetails(weaponDetails))
   }, [])
 
-  const handleClick = evt => {
+  const addToWeapCollection = evt => {
     setFormData({
       weaponName: `${location.state}`,
       weaponType: `${weaponDetails.type}`,
@@ -31,7 +31,7 @@ const WeaponDetails = (props) => {
     createWeapon(formData)
   }
 
-  const removeFromCollection = evt => {
+  const removeFromWeapCollection = evt => {
     console.log('working')
     evt.preventDefault()
     removeWeaponFromHeld(location.state)
@@ -55,24 +55,26 @@ const WeaponDetails = (props) => {
     </div>
     <div>
       <form onSubmit={handleSubmit}>
+        <div>
+          <button 
+            onClick={addToWeapCollection}
+            type="submit"  
+            className={styles.addWeapBtn} 
+          >
+            Add to Collection
+          </button>
+        </div>
+      </form>
         <button 
-          onClick={handleClick}
-          type="submit"  
-          className={styles.addWeapBtn} 
-        >
-          Add to Collection
-        </button>
-        <button 
-          onClick={removeFromCollection}
+          onClick={removeFromWeapCollection}
           type="submit"  
           className={styles.addWeapBtn} 
         >
           Remove from Collection
         </button>
-      </form>
     </div>
     </>
   );
 }
- 
+
 export default WeaponDetails;
