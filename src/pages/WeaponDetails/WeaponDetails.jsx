@@ -40,6 +40,7 @@ const WeaponDetails = (props) => {
 
   return ( 
     <>
+    <div className={styles.detailsContainer}>
     <div>
       <img src={`https://api.genshin.dev/weapons/${location.state}/icon`} alt="gacha-card" />
     </div>
@@ -72,6 +73,7 @@ const WeaponDetails = (props) => {
         >
           Remove from Collection
         </button>
+    </div>
     </div>
     </>
   );
