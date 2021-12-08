@@ -23,6 +23,9 @@ const App = () => {
 	const [handler, setHandler] = useState(true)
 	const navigate = useNavigate()
 
+	const [selectedIdx, setSelectedIdx] = useState()
+  const [nums] = useState([0, 1, 2, 3])
+
 	useEffect(() => {
 		getAllCharacters()
 			.then(characters => {
@@ -51,6 +54,10 @@ const App = () => {
 		setHandler(variable)
 	}
 
+	const handleNums = (idx) => {
+    setSelectedIdx(idx)
+  }
+
 	return (
 		<>
 			<NavBar user={user} handleLogout={handleLogout} />
@@ -64,7 +71,7 @@ const App = () => {
 				<Route path='/weapons' element={<WeaponIndex user={user} weapons={weapons} />} />
 				<Route path='/characterDetails' element={<CharacterDetails user={user} characters={characters} handler={handler} handleClick={handleClick} />} />
 				<Route path='/weaponDetails' element={<WeaponDetails user={user} weapons={weapons} />} />
-				<Route path='/createTeamBuild' element={<CreateTeamBuild user={user} weapons={weapons} />} />
+				<Route path='/createTeamBuild' element={<CreateTeamBuild user={user} weapons={weapons} characters={characters} selectedIdx={selectedIdx} handleNums={handleNums} nums={nums}/>} />
 			</Routes>
 		</>
 	);

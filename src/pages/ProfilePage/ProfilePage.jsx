@@ -10,7 +10,7 @@ const ProfilePage = (props) => {
    const user = props.user
    const [myProfile, setMyProfile] = useState(user)
    const [myCharacters, setMyCharacters] = useState([])
-   const [myTeambuilds, setMyTeamBuilds] = useState([])
+   // const [myTeambuilds, setMyTeamBuilds] = useState([])
 
    useEffect(() => {
       getProfile(props.user.profile)
