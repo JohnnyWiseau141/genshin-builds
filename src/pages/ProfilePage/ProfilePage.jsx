@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { getProfile, getMyCharacters } from '../../services/profileService'
-import TeamBuild from '../../components/TeamBuild/TeamBuild'
+import TeamBuilds from '../../components/TeamBuilds/TeamBuilds'
 import Characters from '../../components/Characters/Characters'
 import styles from './ProfilePage.module.css'
 
@@ -9,6 +9,7 @@ const ProfilePage = (props) => {
    const user = props.user
    const [myProfile, setMyProfile] = useState(user)
    const [myCharacters, setMyCharacters] = useState([])
+   const [myTeambuilds, setMyTeamBuilds] = useState([])
 
    useEffect(() => {
       getProfile(props.user.profile)
@@ -28,10 +29,10 @@ const ProfilePage = (props) => {
       <>
          <main className={styles.profile_page}>
             <h1>{myProfile.name}</h1>
-            <Characters user={user} myCharacters={myCharacters}/>
+            <Characters user={user} myCharacters={myCharacters} />
             {/* avatar image goes here */}
             {/* edit image here  */}
-            <TeamBuild user={user} myCharacters={myCharacters}/>
+            <TeamBuilds user={props.user} myCharacters={myCharacters} weapons={props.weapons} myTeambuilds={myTeambuilds} />
          </main>
       </>
    );
