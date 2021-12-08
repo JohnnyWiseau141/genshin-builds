@@ -1,5 +1,29 @@
 .container {
   display: flex;
   flex-flow: row wrap;
+  background-image: url("https://64.media.tumblr.com/baf5fb73a45b27854ae973fcc9eaa55d/c7d28b43e423a92c-81/s2048x3072/c2866fe301fcc109a175afde2d21d5cf215c3996.png") ;
+  justify-content: space-evenly;
+  row-gap: 20px;
+  column-gap: 20px;
+  
 }
 
+.characterIcon {
+  float: left;
+  width:  100px;
+  height: 100px;
+  object-fit: cover;
+}
+
+.box {
+  inline-size: 100px;
+  /* overflow-wrap: break-word; */
+  color: black;
+  text-align: center;
+}
+
+.icon {
+  background-color: rgba(94, 54, 176, 0.5);
+  border: steelblue;
+  border-radius: 5px;
+}
