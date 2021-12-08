@@ -1,7 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'
 
+
 const NavBar = ({ user, handleLogout }) => {
+	const [isActive, setIsActive] = useState(false)
+	
+	const handleActive = evt => {
+		setIsActive(!isActive)
+	}
+
 	return (
 		<>
 			<nav className="navbar">
@@ -14,15 +21,13 @@ const NavBar = ({ user, handleLogout }) => {
 							height="30" />
 						Genshin Builds
 					</Link>
-
-					<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="genshin-navbar">
+					<a role="button" onClick={() => handleActive()}class="navbar-burger" aria-label="menu">
 						<span aria-hidden="true"></span>
 						<span aria-hidden="true"></span>
 						<span aria-hidden="true"></span>
 					</a>
 				</div>
-
-				<div className="navbar-menu" id="genshin-navbar">
+				<div className={`navbar-menu${isActive ? " is-active" : ""}`}id="genshin-navbar">
 					<div className="navbar-start">
 						<Link className="navbar-item" to="/">Home</Link>
 						<Link className="navbar-item" to="/profile">My Profile</Link>
