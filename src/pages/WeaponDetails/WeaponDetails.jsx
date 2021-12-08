@@ -42,7 +42,7 @@ const WeaponDetails = (props) => {
     <>
     <div className={styles.detailsContainer}>
     <div>
-      <img src={`https://api.genshin.dev/weapons/${location.state}/icon`} alt="gacha-card" />
+      <img className={styles.weaponImage} src={`https://api.genshin.dev/weapons/${location.state}/icon`} alt="gacha-card" />
     </div>
     <div className={styles.weaponDetails}>
       <h1>Name: {weaponDetails.name}</h1>
@@ -60,7 +60,7 @@ const WeaponDetails = (props) => {
           <button 
             onClick={addToWeapCollection}
             type="submit"  
-            className={styles.addWeapBtn} 
+            className={styles.weapBtn} 
           >
             Add to Collection
           </button>
@@ -69,7 +69,7 @@ const WeaponDetails = (props) => {
         <button 
           onClick={removeFromWeapCollection}
           type="submit"  
-          className={styles.addWeapBtn} 
+          className={styles.weapBtn} 
         >
           Remove from Collection
         </button>

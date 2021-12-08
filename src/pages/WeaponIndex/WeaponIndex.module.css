@@ -18,6 +18,7 @@
   inline-size: 100px;
   overflow-wrap: break-word;
   color: black;
+  text-align: center;
 }
 
 .weaponImage {
