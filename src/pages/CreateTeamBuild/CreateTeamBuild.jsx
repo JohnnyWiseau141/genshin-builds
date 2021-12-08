@@ -1,21 +1,23 @@
 import React from 'react';
+import { useLocation } from "react-router-dom";
 import styles from './CreateTeamBuild.module.css'
 
 const CreateTeamBuild = (props) => {
-   const allCharacters = props.props.myCharacters
-   const allWeapons = props.props.weapons
+   const location = useLocation()
+   const allCharacters = location.state
+   const allWeapons = props.weapons
 
    const handleClick = () => {
       console.log('working')
    }
 
-
    return (
       <>
          <div>
+            {/* Show empty character slots so you can add characters woo */}
+
             {/* show list of characters to add to team */}
-            <button>Create Team</button>
-            <div className={styles.character_list} style={{ display: 'none' }}>
+            <div className={styles.character_list} style={{ display: '' }}>
                {allCharacters.map(character =>
                   <>
                      <button>
@@ -25,7 +27,7 @@ const CreateTeamBuild = (props) => {
                )}
             </div>
          </div>
-         <div style={{ display: 'none' }}>
+         <div style={{ display: '' }}>
             {allWeapons.map(weapon =>
                <>
                   <button>
@@ -38,6 +40,7 @@ const CreateTeamBuild = (props) => {
                </>
             )}
          </div>
+         <h1>working</h1>
       </>
    );
 }

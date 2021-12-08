@@ -10,6 +10,7 @@ import CharacterIndex from '../CharacterIndex/CharacterIndex'
 import WeaponIndex from '../WeaponIndex/WeaponIndex'
 import CharacterDetails from '../CharacterDetails/CharacterDetails'
 import WeaponDetails from '../WeaponDetails/WeaponDetails'
+import CreateTeamBuild from '../CreateTeamBuild/CreateTeamBuild'
 import * as authService from '../../services/authService'
 import { getAllCharacters } from '../../services/characterService'
 import { getAllWeapons } from '../../services/weaponService'
@@ -63,6 +64,7 @@ const App = () => {
 				<Route path='/weapons' element={<WeaponIndex user={user} weapons={weapons} />} />
 				<Route path='/characterDetails' element={<CharacterDetails user={user} characters={characters} handler={handler} handleClick={handleClick} />} />
 				<Route path='/weaponDetails' element={<WeaponDetails user={user} weapons={weapons} />} />
+				<Route path='/createTeamBuild' element={<CreateTeamBuild user={user} weapons={weapons} />} />
 			</Routes>
 		</>
 	);
