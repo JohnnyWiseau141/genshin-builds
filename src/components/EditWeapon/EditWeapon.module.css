@@ -1,0 +1,10 @@
+.selectWeapon {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+}
+
+.weapon {
+  height: 100px;
+  width: 100px;
+}
