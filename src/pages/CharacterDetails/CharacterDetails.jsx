@@ -17,6 +17,7 @@ const CharacterDetails = (props) => {
   return (  
     <>
     {/* render character gacha card */}
+    <div className={styles.detailsContainer} >
     <div>
       <img className={styles.gachaCard} src={`https://api.genshin.dev/characters/${location.state}/gacha-card`} alt="gacha-card" />
     </div>
@@ -38,6 +39,7 @@ const CharacterDetails = (props) => {
     {/* if handler is false, display RemoveCharacter component */}
     <div className={ props.handler ? (styles.removeCharacter) : (null)}>
       <RemoveCharacter detailId={location.state} characterDetails={characterDetails} handleClick={props.handleClick} handler={props.handler}/>
+    </div>
     </div>
     </>
   );
