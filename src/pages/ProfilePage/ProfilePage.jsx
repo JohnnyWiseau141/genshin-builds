@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getProfile, getMyCharacters } from '../../services/profileService'
-import TeamBuilds from '../../components/TeamBuilds/TeamBuilds'
+// import TeamBuilds from '../../components/TeamBuilds/TeamBuilds'
+import { Link } from 'react-router-dom'
 import Characters from '../../components/Characters/Characters'
 import styles from './ProfilePage.module.css'
 
@@ -32,7 +33,12 @@ const ProfilePage = (props) => {
             <Characters user={user} myCharacters={myCharacters} />
             {/* avatar image goes here */}
             {/* edit image here  */}
-            <TeamBuilds user={props.user} myCharacters={myCharacters} weapons={props.weapons} myTeambuilds={myTeambuilds} />
+            {/* <TeamBuilds user={props.user} myCharacters={myCharacters} weapons={props.weapons} myTeambuilds={myTeambuilds} /> */}
+            <Link
+               className="button"
+               to='/createTeamBuild'
+               state={myCharacters}
+            >Create a Build</Link>
          </main>
       </>
    );

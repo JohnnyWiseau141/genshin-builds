@@ -1,5 +1,5 @@
 import React, { Profiler, useEffect, useState } from 'react'
-import CreateTeamBuild from '../CreateTeamBuild/CreateTeamBuild'
+import CreateTeamBuild from '../../pages/CreateTeamBuild/CreateTeamBuild'
 import { Link } from 'react-router-dom'
 import styles from '../TeamBuilds/TeamBuilds.module.css'
 
