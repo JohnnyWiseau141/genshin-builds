@@ -10,6 +10,8 @@
    display: flex;
    justify-content: center;
    flex-wrap: wrap;
+   column-gap: 5vh;
+   row-gap: 5vh;
 }
 
 .bground {
