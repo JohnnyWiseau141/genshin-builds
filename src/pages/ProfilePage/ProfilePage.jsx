@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getProfile, getMyCharacters } from '../../services/profileService'
-// import TeamBuilds from '../../components/TeamBuilds/TeamBuilds'
+import { getProfile, getMyCharacters, createBuild } from '../../services/profileService'
 import { Link } from 'react-router-dom'
 import Characters from '../../components/Characters/Characters'
 import styles from './ProfilePage.module.css'
@@ -11,6 +10,14 @@ const ProfilePage = (props) => {
    const [myProfile, setMyProfile] = useState(user)
    const [myCharacters, setMyCharacters] = useState([])
    // const [myTeambuilds, setMyTeamBuilds] = useState([])
+
+   const [formData, setFormData] = useState({
+      createdBy: props.user.profile
+   })
+
+   const addToCollection = evt => {
+      createBuild(formData)
+   }
 
    useEffect(() => {
       getProfile(props.user.profile)
@@ -37,6 +44,7 @@ const ProfilePage = (props) => {
             <Link
                className="button"
                to='/createTeamBuild'
+               onClick={addToCollection}
                state={myCharacters}
             >Create a Build</Link>
          </main>
