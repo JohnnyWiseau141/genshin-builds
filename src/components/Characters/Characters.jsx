@@ -14,6 +14,7 @@ const Characters = (props) => {
                      <div key={character.characterName} className={styles.icon}>
                         <Link to={`/characterDetails`} state={character.characterName.toLowerCase()}>
                            <img className={styles.characterIcon} key={character.characterName} src={`https://api.genshin.dev/characters/${character.characterName.toLowerCase()}/icon`} alt="icon" />
+                           {character.characterName}
                         </Link>
                      </div>
                   </>
