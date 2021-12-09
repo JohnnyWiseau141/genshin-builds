@@ -1,5 +1,6 @@
 import { Profile } from '../models/profile.js'
 import { Character } from '../models/character.js'
+import { Build } from '../models/build.js'
 
 function getProfile(req, res) {
    Profile.findById(req.params.id)
@@ -15,7 +16,15 @@ function getMyCharacters(req, res) {
    })
 }
 
+function create(req, res){
+   Build.create(req.body)
+   .then(build => {
+      res.json(build)
+   })
+}
+
 export {
    getProfile,
-   getMyCharacters
+   getMyCharacters,
+   create
 }

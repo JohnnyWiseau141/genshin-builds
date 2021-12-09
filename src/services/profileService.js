@@ -15,7 +15,19 @@ function getMyCharacters(id){
    .then(res => res.json())
 }
 
+function createBuild(buildData){
+   return fetch(`${BASE_URL}`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(buildData)
+    })
+    .then(res => res.json())
+}
+
 export {
    getProfile,
-   getMyCharacters
+   getMyCharacters,
+   createBuild
 }
