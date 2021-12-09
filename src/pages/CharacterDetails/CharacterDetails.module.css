@@ -11,11 +11,13 @@
   background-color: rgb(49, 154, 211, .5);
   color: black;
   height: min-content;
+  border-radius: 15px;
 }
 
 .gachaCard {
   height: 60%;
   float: right;
+  border-radius: 15px;
 }
 
 
