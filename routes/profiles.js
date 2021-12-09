@@ -11,7 +11,7 @@ const router = Router()
 router.use(decodeUserFromToken)
 router.get('/:id', checkAuth, profilesCtrl.getProfile)
 router.get('/:id/characters', checkAuth, profilesCtrl.getMyCharacters)
-router.post('/',profilesCtrl.create)
-router.patch('/:id',checkAuth, profilesCtrl.addCharacter)
+router.post('/:id/builds', profilesCtrl.create)
+router.put('/:id/builds/:buildId', checkAuth, profilesCtrl.addCharacter)
 
 export { router }

@@ -15,8 +15,8 @@ function getMyCharacters(id){
    .then(res => res.json())
 }
 
-function createBuild(buildData){
-   return fetch(`${BASE_URL}`, {
+function createBuild(id, buildData){
+   return fetch(`${BASE_URL}/${id}/builds`, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
@@ -26,26 +26,16 @@ function createBuild(buildData){
     .then(res => res.json())
 }
 
-function addCharacter(buildId){
-   return fetch(`${BASE_URL}/${buildId}`, {
-      method: 'PATCH',
+function addCharacter(id, buildId, character){
+   return fetch(`${BASE_URL}/${id}/builds/${buildId}`, {
+      method: 'PUT',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
       },
-      body: JSON.stringify(buildId)
+      body: JSON.stringify(character)
     })
-   //  .then(res => res.json())
-   .then(async response => {
-      try {
-         const data = await response.json()
-         console.log('response data?', data)
-      } catch(error) {
-         console.log('Error Happened Here!')
-         console.log(error)
-         console.log(response.json)
-      }
-   })
-}
+    .then(res => res.json())
+   }
 
 export {
    getProfile,
