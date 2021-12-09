@@ -11,7 +11,9 @@ const ProfilePage = (props) => {
    const [myCharacters, setMyCharacters] = useState([])
    // const [myTeambuilds, setMyTeamBuilds] = useState([])
 
-   const [formData, setFormData] = useState({})
+   const [formData, setFormData] = useState({
+      createdBy: props.user.profile
+   })
 
    const addToCollection = evt => {
       createBuild(formData)
@@ -42,8 +44,8 @@ const ProfilePage = (props) => {
             <Link
                className="button"
                to='/createTeamBuild'
-               state={myCharacters}
                onClick={addToCollection}
+               state={myCharacters}
             >Create a Build</Link>
          </main>
       </>

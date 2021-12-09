@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styles from './CreateTeamBuild.module.css'
 import { useLocation } from "react-router-dom";
 import Characters from '../../components/Characters/Characters';
 import EditCharacter from '../../components/EditCharacter/EditCharacter'
 import EditWeapon from '../../components/EditWeapon/EditWeapon'
 import SelectTeam from '../../components/SelectTeam/SelectTeam'
+import { getProfile } from '../../services/profileService';
 
 const CreateTeamBuild = (props) => {
    const location = useLocation()
@@ -18,7 +19,7 @@ const CreateTeamBuild = (props) => {
    return (
       <>
        <main className={styles.profile_page}>
-            { (IsEdit) ? ('') : (isEditWeapon) ? (<EditCharacter user={user} myCharacters={myCharacters} setImage={setImage} setIsEditWeapon={setIsEditWeapon} setSelectedChar={setSelectedChar}/>) : (<EditWeapon weapons={props.weapons} selectedChar={selectedChar} setIsEditWeapon={setIsEditWeapon} setIsEdit={setIsEdit} />)
+            { (IsEdit) ? ('') : (isEditWeapon) ? (<EditCharacter user={user} myCharacters={myCharacters} setImage={setImage} setIsEditWeapon={setIsEditWeapon} setSelectedChar={setSelectedChar} profile={props.profile}  />) : (<EditWeapon weapons={props.weapons} selectedChar={selectedChar} setIsEditWeapon={setIsEditWeapon} setIsEdit={setIsEdit} />)
             }
           
             <SelectTeam user={user} myCharacters={myCharacters} selectedIdx={props.selectedIdx} handleNums={props.handleNums} nums={props.nums} setIsEdit={setIsEdit} image={image} setImage={setImage}/>

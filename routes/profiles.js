@@ -12,5 +12,6 @@ router.use(decodeUserFromToken)
 router.get('/:id', checkAuth, profilesCtrl.getProfile)
 router.get('/:id/characters', checkAuth, profilesCtrl.getMyCharacters)
 router.post('/',profilesCtrl.create)
+router.patch('/:id',checkAuth, profilesCtrl.addCharacter)
 
 export { router }

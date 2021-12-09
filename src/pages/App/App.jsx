@@ -14,6 +14,7 @@ import CreateTeamBuild from '../CreateTeamBuild/CreateTeamBuild'
 import * as authService from '../../services/authService'
 import { getAllCharacters } from '../../services/characterService'
 import { getAllWeapons } from '../../services/weaponService'
+import { getProfile } from '../../services/profileService'
 
 
 const App = () => {
@@ -21,6 +22,7 @@ const App = () => {
 	const [characters, setCharacters] = useState([])
 	const [weapons, setWeapons] = useState([])
 	const [handler, setHandler] = useState(true)
+	const [profile, setProfile] = useState(user)
 	const navigate = useNavigate()
 
 	const [selectedIdx, setSelectedIdx] = useState()
@@ -39,6 +41,13 @@ const App = () => {
 				setWeapons(weapons)
 			})
 	}, [])
+
+	useEffect(()=>{
+		getProfile(user.profile)
+		.then(myProfile => {
+			setProfile(myProfile)
+		})
+	},[])
 
 	const handleLogout = () => {
 		authService.logout()
@@ -71,7 +80,7 @@ const App = () => {
 				<Route path='/weapons' element={<WeaponIndex user={user} weapons={weapons} />} />
 				<Route path='/characterDetails' element={<CharacterDetails user={user} characters={characters} handler={handler} handleClick={handleClick} />} />
 				<Route path='/weaponDetails' element={<WeaponDetails user={user} weapons={weapons} />} />
-				<Route path='/createTeamBuild' element={<CreateTeamBuild user={user} weapons={weapons} characters={characters} selectedIdx={selectedIdx} handleNums={handleNums} nums={nums}/>} />
+				<Route path='/createTeamBuild' element={<CreateTeamBuild user={user} weapons={weapons} characters={characters} selectedIdx={selectedIdx} handleNums={handleNums} nums={nums} profile={profile} />} />
 			</Routes>
 		</>
 	);
