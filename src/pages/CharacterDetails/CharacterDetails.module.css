@@ -10,21 +10,20 @@
   text-align: center;
   background-color: rgb(49, 154, 211, .5);
   color: black;
+  height: min-content;
 }
 
 .gachaCard {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  height: 60%;
+  float: right;
 }
+
+
 
 .detailsContainer {
   background-image: url("https://preview.redd.it/xqmxeey9qxx51.jpg?width=1920&format=pjpg&auto=webp&s=9e23fa457315a5b07b1703ba52f129fd9d035aa2") ;
   background-size: 100% 100% ;
-}
-
-button {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
