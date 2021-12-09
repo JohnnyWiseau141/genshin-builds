@@ -19,7 +19,6 @@ const App = () => {
 	const [user, setUser] = useState(authService.getUser())
 	const [characters, setCharacters] = useState([])
 	const [weapons, setWeapons] = useState([])
-	const [handler, setHandler] = useState(true)
 	const navigate = useNavigate()
 
 	useEffect(() => {
@@ -46,10 +45,6 @@ const App = () => {
 		setUser(authService.getUser())
 	}
 
-	const handleClick = (variable) => {
-		setHandler(variable)
-	}
-
 	return (
 		<>
 			<NavBar user={user} handleLogout={handleLogout} />
@@ -61,7 +56,7 @@ const App = () => {
 				<Route path='/profile' element={user ? <ProfilePage user={user} weapons={weapons} characters={characters} /> : <Navigate to='/login' />} />
 				<Route path='/characters' element={<CharacterIndex user={user} characters={characters} />} />
 				<Route path='/weapons' element={<WeaponIndex user={user} weapons={weapons} />} />
-				<Route path='/characterDetails' element={<CharacterDetails user={user} characters={characters} handler={handler} handleClick={handleClick} />} />
+				<Route path='/characterDetails' element={<CharacterDetails user={user} characters={characters} />} />
 				<Route path='/weaponDetails' element={<WeaponDetails user={user} weapons={weapons} />} />
 				<Route path='/createTeamBuild' element={<CreateTeamBuild user={user} weapons={weapons} characters={characters} />} />
 			</Routes>

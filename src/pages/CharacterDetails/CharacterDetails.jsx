@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLocation } from "react-router-dom";
 import { getCharacterDetails  } from '../../services/characterService'
 import styles from './CharacterDetails.module.css'
@@ -7,12 +7,30 @@ import RemoveCharacter from '../../components/RemoveCharacter/RemoveCharacter';
 
 const CharacterDetails = (props) => {
   const [characterDetails, setCharacterDetails] = useState({})
+  // const [handler, setHandler] = useState(true)
+  const handler = useRef(true)
+
+  const handleClick = (newValue) => {
+    const value = handler.current
+    console.log(handler.current)
+    handler.current = newValue
+    console.log(newValue)
+  }
+
   let location = useLocation()
 
   useEffect(()=> {
     getCharacterDetails(location.state)
     .then(characterDetails => setCharacterDetails(characterDetails))
   },[])
+
+  // const handleClick = (variable) => {
+	// 	setHandler(variable)
+	// }
+
+  // useEffect(()=> {
+  //   handler = handler
+  // })
   
   return (  
     <>
@@ -33,13 +51,13 @@ const CharacterDetails = (props) => {
       </div>
 
       {/* if handler is true, display CharacterForm component */}
-      <div className={ props.handler ? (null) : (styles.characterForm)}>
-        <CharacterForm detailId={location.state} characterDetails={characterDetails} handleClick={props.handleClick} handler={props.handler} />
+      <div className={ handler ? (null) : (styles.characterForm)}>
+        <CharacterForm detailId={location.state} characterDetails={characterDetails} handler={handler} handleClick={handleClick} />
       </div>
 
       {/* if handler is false, display RemoveCharacter component */}
-      <div className={ props.handler ? (styles.removeCharacter) : (null)}>
-        <RemoveCharacter detailId={location.state} characterDetails={characterDetails} handleClick={props.handleClick} handler={props.handler}/>
+      <div className={ handler ? (styles.removeCharacter) : (null)}>
+        <RemoveCharacter detailId={location.state} characterDetails={characterDetails} handler={handler} handleClick={handleClick} />
       </div>
       </div>
     </div>
