@@ -12,11 +12,15 @@ const ProfilePage = (props) => {
    // const [myTeambuilds, setMyTeamBuilds] = useState([])
 
    const [formData, setFormData] = useState({
-      createdBy: props.user.profile
+      createdBy: props.user.profile,
+      character1: [],
+      character2: [],
+      character3: [],
+      character4: []
    })
 
    const addToCollection = evt => {
-      createBuild(formData)
+      createBuild(props.user.profile, formData)
    }
 
    useEffect(() => {

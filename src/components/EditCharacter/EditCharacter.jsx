@@ -8,13 +8,18 @@ const EditCharacter = (props) => {
    const allCharacters = props.myCharacters
    const [myProfile, setMyProfile] = useState(props.profile)
    const location = useLocation()
-   console.log(myProfile.teamBuilds)
+   console.log(props.user.profile)
+   console.log(myProfile.teamBuilds[myProfile.teamBuilds.length-1])
 
    const changeImage = (evt) => {
       props.setImage(`https://api.genshin.dev/characters/${evt.target.id}/icon`)
       props.setIsEditWeapon(false)
       props.setSelectedChar(evt.target.id)
-      addCharacter(myProfile.teamBuilds[myProfile.teamBuilds.length-1])
+      console.log(evt.target.id)
+      addCharacter(props.user.profile, myProfile.teamBuilds[myProfile.teamBuilds.length-1], { name: evt.target.id})
+      .then(()=>{
+         console.log('executed')
+      })
    }
 
    useEffect(()=>{
