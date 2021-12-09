@@ -39,19 +39,25 @@ const ProfilePage = (props) => {
 
    return (
       <>
+         <div className={styles.bground}>
          <main className={styles.profile_page}>
-            <h1>{myProfile.name}</h1>
+            <h1 className={styles.text}>{myProfile.name} character collection:</h1>
+            <div className={styles.imgHolder}>
             <Characters user={user} myCharacters={myCharacters} />
+            </div>
             {/* avatar image goes here */}
             {/* edit image here  */}
             {/* <TeamBuilds user={props.user} myCharacters={myCharacters} weapons={props.weapons} myTeambuilds={myTeambuilds} /> */}
+            <div className={styles.buttony}>
             <Link
                className="button"
                to='/createTeamBuild'
                onClick={addToCollection}
                state={myCharacters}
             >Create a Build</Link>
+            </div>
          </main>
+         </div>
       </>
    );
 }
