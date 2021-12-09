@@ -29,16 +29,17 @@ function create(req, res){
 }
 
 function addCharacter(req,res){
-   // Build.findByIdAndUpdate(req.params.id)
-   // .then(updatedBuild => {
-   //    updatedBuild.populate('character1')
-   //    updatedBuild.character1.push(req.body)
-   //    .then(build => {
-   //       res.json(build)
-   //    })
-   // })
-   console.log(req.params.id)
+   Build.findByIdAndUpdate(req.params.buildId)
+   .then(build =>{
+      Character.findOne({ characterName: req.body.name })
+      .then(character => {
+         build.character1.push(character._id)
+         build.save()
+      })
+      res.json(build)
+   })
 }
+
 
 export {
    getProfile,
