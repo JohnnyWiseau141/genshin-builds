@@ -36,18 +36,13 @@ const CreateTeamBuild = (props) => {
    return (
       <>
          <main className={styles.profile_page}>
-            <SelectTeam user={user} myCharacters={myCharacters}
-               selectedIdx={selectedIdx}
-               image={image} setImage={setImage} 
-               handleClick={handleClick}
-            />
+            <SelectTeam user={user} myCharacters={myCharacters} handleClick={handleClick}/>
             {(IsEdit) ?
                ('') : (isEditWeapon) ?
                   (<EditCharacter user={user} myCharacters={myCharacters}
-                     setImage={setImage} setIsEditWeapon={setIsEditWeapon}
+                     setIsEditWeapon={setIsEditWeapon}
                      setSelectedChar={setSelectedChar} profile={props.profile}
                      handleClick={handleClick}
-                     image={image}
                   />)
                   :
                   // <h1>weapons here</h1>
