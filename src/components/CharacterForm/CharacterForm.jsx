@@ -12,7 +12,6 @@ const CharacterForm = (props) => {
   const handleSubmit = evt => {
     evt.preventDefault()
     createCharacter(formData)
-    console.log(formData)
   }
 
   const addToCollection = evt => {
