@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 const CharacterIndex = (props) => {
   return (  
     <>
+  <div className={styles.bground}>
     <div className={styles.container}>
       {props.characters.map(character =>
         <div key={character} className={styles.icon}>
@@ -13,6 +14,7 @@ const CharacterIndex = (props) => {
               </Link>
         </div>
       )}
+    </div>
     </div>
     </>
   );
