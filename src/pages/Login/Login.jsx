@@ -4,12 +4,14 @@ import styles from './Login.module.css'
 
 const LoginPage = (props) => {
   return (
-  <div className={styles.wrapper}>
-    <main className={styles.container}>
-      <h1>Log In</h1>
-      <LoginForm handleSignupOrLogin={props.handleSignupOrLogin} />
-    </main>
-  </div>
+  <main className={styles.container}>
+    <div className={styles.bground}></div>
+      <div className={styles.text}>
+        <h1>Log In</h1>
+        <LoginForm handleSignupOrLogin={props.handleSignupOrLogin} />
+      </div>
+    
+  </main>
   );
 }
  
