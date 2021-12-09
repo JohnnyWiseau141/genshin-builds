@@ -12,6 +12,6 @@ router.use(decodeUserFromToken)
 router.get('/:id', checkAuth, profilesCtrl.getProfile)
 router.get('/:id/characters', checkAuth, profilesCtrl.getMyCharacters)
 router.post('/:id/builds', profilesCtrl.create)
-router.put('/:id/builds/:buildId', checkAuth, profilesCtrl.addCharacter)
+router.patch('/:id/builds/:buildId/:selectedIdx', checkAuth, profilesCtrl.addCharacter)
 
 export { router }

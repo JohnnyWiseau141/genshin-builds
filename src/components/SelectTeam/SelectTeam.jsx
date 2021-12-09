@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styles from './SelectTeam.module.css'
 
 const SelectTeam = (props) => {
 
-   // const addCharacter = (evt) => {
-   //    props.setIsEdit(false)
-   // }
+   const [selectedIdx, setSelectedIdx] = useState()
+
+   const updateIdx = (idx) => {
+      props.handleClick(idx)
+      setSelectedIdx(idx)
+   }
 
    return (
       <>
@@ -15,7 +18,7 @@ const SelectTeam = (props) => {
                <button
                   key={`btn${idx}`}
                   // onClick={addCharacter}
-                  onClick={() => props.handleClick(idx)}
+                  onClick={()=>updateIdx(idx)}
                   >
                      <img 
                         key={`img${idx}`} 
