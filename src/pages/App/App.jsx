@@ -42,12 +42,12 @@ const App = () => {
 			})
 	}, [])
 
-	useEffect(()=>{
-		getProfile(user.profile)
-		.then(myProfile => {
-			setProfile(myProfile)
-		})
-	},[])
+	// useEffect(()=>{
+	// 	getProfile(user.profile)
+	// 	.then(myProfile => {
+	// 		setProfile(myProfile)
+	// 	})
+	// },[])
 
 	const handleLogout = () => {
 		authService.logout()
