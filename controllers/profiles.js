@@ -33,8 +33,19 @@ function addCharacter(req,res){
    .then(build =>{
       Character.findOne({ characterName: req.body.name })
       .then(character => {
-         build.character1.push(character._id)
-         build.save()
+         if (parseInt(req.params.selectedIdx) === 0){
+            build.character1.push(character._id)
+            build.save()
+         } else if (parseInt(req.params.selectedIdx) === 1) {
+            build.character2.push(character._id)
+            build.save()
+         } else if (parseInt(req.params.selectedIdx) === 2){
+            build.character3.push(character._id)
+            build.save()
+         } else if (parseInt(req.params.selectedIdx) ===3){
+            build.character4.push(character._id)
+            build.save()
+         }
       })
       res.json(build)
    })

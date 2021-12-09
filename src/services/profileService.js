@@ -26,9 +26,9 @@ function createBuild(id, buildData){
     .then(res => res.json())
 }
 
-function addCharacter(id, buildId, character){
-   return fetch(`${BASE_URL}/${id}/builds/${buildId}`, {
-      method: 'PUT',
+function addCharacter(id, buildId, character, selectedIdx){
+   return fetch(`${BASE_URL}/${id}/builds/${buildId}/${selectedIdx}`, {
+      method: 'PATCH',
       headers: {
         'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
       },

@@ -68,7 +68,7 @@ const CreateTeamBuild = (props) => {
                   (<EditCharacter user={user} myCharacters={myCharacters}
                      setIsEditWeapon={setIsEditWeapon} setSelectedChar={setSelectedChar} profile={profile} handleClick={handleClick}
                      boxOne={boxOne} boxTwo={boxTwo} boxThree={boxThree} boxFour={boxFour}
-                     changeBoxImg={changeBoxImg}
+                     changeBoxImg={changeBoxImg} selectedIdx={selectedIdx}
                   />)
                   :
                   // <h1>weapons here</h1>

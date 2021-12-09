@@ -15,7 +15,7 @@ const EditCharacter = (props) => {
       props.setIsEditWeapon(false)
       props.changeBoxImg(evt.target.id)
       console.log(evt.target.id)
-      addCharacter(props.user.profile, myProfile.teamBuilds[myProfile.teamBuilds.length-1], { name: evt.target.id})
+      addCharacter(props.user.profile, myProfile.teamBuilds[myProfile.teamBuilds.length-1], { name: evt.target.id}, props.selectedIdx)
       .then(()=>{
          console.log('executed')
       })
