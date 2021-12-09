@@ -24,6 +24,12 @@
 
 .text {
    align-self: center;
-   background-color: rgba(63, 73, 131, 0.4); /* Black w/opacity/see-through */
-   color: rgb(135, 187, 232);
+   background-color: rgba(63, 73, 131, 0.4);
+   color: rgb(239, 242, 244);
+   border-radius: 30px;
+}
+
+.charaImage {
+   background-color: rgba(94, 54, 176, 0.5);
+   border-radius: 5px;
 }
