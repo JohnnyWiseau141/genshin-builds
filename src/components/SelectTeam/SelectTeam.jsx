@@ -3,21 +3,23 @@ import styles from './SelectTeam.module.css'
 
 const SelectTeam = (props) => {
 
-   const addCharacter = (evt) => {
-      props.setIsEdit(false)
-   }
+   // const addCharacter = (evt) => {
+   //    props.setIsEdit(false)
+   // }
 
    return (
       <>
          <div className={styles.buildContainer}>
             <div className={styles.addCharacters}>
-               {props.nums.map(num =>
+               {props.images.map((image, idx) =>
                <button
-                  key={`btn${num}`}
-                  onClick={addCharacter}>
+                  key={`btn${idx}`}
+                  // onClick={addCharacter}
+                  onClick={() => props.handleClick(idx)}
+                  >
                      <img 
-                        key={`img${num}`} 
-                        src={props.image}
+                        key={`img${idx}`} 
+                        src={image}
                         alt="plus" 
                         className={styles.plusImage} />
                </button>

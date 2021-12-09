@@ -22,6 +22,9 @@ const CreateTeamBuild = (props) => {
    const [boxThree, setBoxThree] = useState(defaultImg)
    const [boxFour, setBoxFour] = useState(defaultImg)
 
+   const [selectedIdx, setSelectedIdx] = useState()
+   const [images, setImages] = useState([boxOne, boxTwo, boxThree, boxFour])
+
    useEffect(() => {
       getProfile(user.profile)
          .then(myProfile => {
@@ -29,27 +32,53 @@ const CreateTeamBuild = (props) => {
          })
    }, [])
 
+   const changeBoxImg = name => {
+      if (selectedIdx === 0) {
+         setBoxOne(`https://api.genshin.dev/characters/${name}/icon`)
+         setImages([`https://api.genshin.dev/characters/${name}/icon`, boxTwo, boxThree, boxFour])
+      }
+      if (selectedIdx === 1) {
+         setBoxTwo(`https://api.genshin.dev/characters/${name}/icon`)
+         setImages([boxOne, `https://api.genshin.dev/characters/${name}/icon`, boxThree, boxFour])
+      }
+      if (selectedIdx === 2) {
+         setBoxThree(`https://api.genshin.dev/characters/${name}/icon`)
+         setImages([boxOne, boxTwo, `https://api.genshin.dev/characters/${name}/icon`, boxFour])
+      }
+      if (selectedIdx === 3) {
+         setBoxFour(`https://api.genshin.dev/characters/${name}/icon`)
+         setImages([boxOne, boxTwo, boxThree, `https://api.genshin.dev/characters/${name}/icon`])
+      }
+   }
+
    const handleClick = idx => {
+      setSelectedIdx(idx)
       setIsEdit(false)
    }
 
    return (
       <>
-         <main className={styles.profile_page}>
-            <SelectTeam user={user} myCharacters={myCharacters} handleClick={handleClick}/>
+         <main className={`has-text-centered ${styles.profile_page}`}>
+            <SelectTeam user={user} myCharacters={myCharacters} handleClick={handleClick} setIsEdit={setIsEdit}
+               boxOne={boxOne} boxTwo={boxTwo} boxThree={boxThree} boxFour={boxFour}
+               selectedIdx={selectedIdx} images={images}
+            />
             {(IsEdit) ?
                ('') : (isEditWeapon) ?
                   (<EditCharacter user={user} myCharacters={myCharacters}
-                     setIsEditWeapon={setIsEditWeapon}
-                     setSelectedChar={setSelectedChar} profile={props.profile}
-                     handleClick={handleClick}
+                     setIsEditWeapon={setIsEditWeapon} setSelectedChar={setSelectedChar} profile={profile} handleClick={handleClick}
+                     boxOne={boxOne} boxTwo={boxTwo} boxThree={boxThree} boxFour={boxFour}
+                     changeBoxImg={changeBoxImg}
                   />)
                   :
                   // <h1>weapons here</h1>
-                  (<EditWeapon weapons={props.weapons} selectedChar={selectedChar}
-                     setIsEditWeapon={setIsEditWeapon} setIsEdit={setIsEdit}
+                  (<EditWeapon weapons={props.weapons} setIsEditWeapon={setIsEditWeapon} setIsEdit={setIsEdit}
                   />)
             }
+            <button className="button is-light">
+               {/* show once all characters and weapons have been added!!! */}
+               Done
+            </button>
          </main>
       </>
    );
