@@ -37,9 +37,17 @@ function addCharacter(id, buildId, character, selectedIdx){
     .then(res => res.json())
    }
 
+function getMyBuilds(id){
+   return fetch(`${BASE_URL}/${id}/builds`, {
+      headers: { Authorization: `Bearer ${tokenService.getToken()}` }
+   })
+      .then(res => res.json())
+}
+
 export {
    getProfile,
    getMyCharacters,
    createBuild,
-   addCharacter
+   addCharacter,
+   getMyBuilds
 }

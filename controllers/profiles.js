@@ -34,16 +34,16 @@ function addCharacter(req,res){
       Character.findOne({ characterName: req.body.name })
       .then(character => {
          if (parseInt(req.params.selectedIdx) === 0){
-            build.character1.push(character._id)
+            build.character1.push(character.characterName)
             build.save()
          } else if (parseInt(req.params.selectedIdx) === 1) {
-            build.character2.push(character._id)
+            build.character2.push(character.characterName)
             build.save()
          } else if (parseInt(req.params.selectedIdx) === 2){
-            build.character3.push(character._id)
+            build.character3.push(character.characterName)
             build.save()
          } else if (parseInt(req.params.selectedIdx) ===3){
-            build.character4.push(character._id)
+            build.character4.push(character.characterName)
             build.save()
          }
       })
@@ -51,10 +51,20 @@ function addCharacter(req,res){
    })
 }
 
+function getMyBuilds(req,res){
+   Build.find({createdBy: req.params.id})
+   .then(builds =>{
+      console.log(builds)
+      res.json(builds)
+   })
+}
+
+
 
 export {
    getProfile,
    getMyCharacters,
    create,
-   addCharacter
+   addCharacter,
+   getMyBuilds
 }

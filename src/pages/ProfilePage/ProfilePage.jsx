@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react'
-import { getProfile, getMyCharacters, createBuild } from '../../services/profileService'
+import { getProfile, getMyCharacters, createBuild, getMyBuilds } from '../../services/profileService'
 import { Link } from 'react-router-dom'
 import Characters from '../../components/Characters/Characters'
+import TeamBuilds from '../../components/TeamBuilds/TeamBuilds'
 import styles from './ProfilePage.module.css'
 
 
@@ -9,7 +10,7 @@ const ProfilePage = (props) => {
    const user = props.user
    const [myProfile, setMyProfile] = useState(user)
    const [myCharacters, setMyCharacters] = useState([])
-   // const [myTeambuilds, setMyTeamBuilds] = useState([])
+   const [myTeamBuilds, setMyTeamBuilds] = useState([])
 
    const [formData, setFormData] = useState({
       createdBy: props.user.profile,
@@ -37,6 +38,13 @@ const ProfilePage = (props) => {
          })
    }, [])
 
+   useEffect(() =>{
+      getMyBuilds(props.user.profile)
+      .then(getMyBuilds =>{
+         setMyTeamBuilds(getMyBuilds)
+      })
+   },[])
+
    return (
       <>
          <div className={styles.bground}>
@@ -45,10 +53,9 @@ const ProfilePage = (props) => {
                <br />
                <div className={styles.imgHolder}>
                   <Characters className={styles.charaImage} user={user} myCharacters={myCharacters} />
+
+                  <TeamBuilds user={props.user} myTeamBuilds={myTeamBuilds} />
                </div>
-                  {/* avatar image goes here */}
-                  {/* edit image here  */}
-                  {/* <TeamBuilds user={props.user} myCharacters={myCharacters} weapons={props.weapons} myTeambuilds={myTeambuilds} /> */}
                <div>
                   <br/>
                   <Link
