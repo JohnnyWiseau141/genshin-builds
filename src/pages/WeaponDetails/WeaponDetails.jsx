@@ -54,7 +54,7 @@ const WeaponDetails = (props) => {
       <h1>Passive description: {weaponDetails.passiveDesc}</h1>
       <h1>Location: {weaponDetails.location}</h1>
     </div>
-    {/* <div>
+    <div>
       <form onSubmit={handleSubmit}>
         <div>
           <button 
@@ -73,7 +73,7 @@ const WeaponDetails = (props) => {
         >
           Remove from Collection
         </button>
-    </div> */}
+    </div>
     </div>
     </>
   );

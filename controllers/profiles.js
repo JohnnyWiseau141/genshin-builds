@@ -1,6 +1,7 @@
 import { Profile } from '../models/profile.js'
 import { Character } from '../models/character.js'
 import { Build } from '../models/build.js'
+import { Weapon } from '../models/weapon.js'
 
 function getProfile(req, res) {
    Profile.findById(req.params.id)
@@ -13,6 +14,13 @@ function getMyCharacters(req, res) {
    Character.find({ collectedBy: req.params.id })
       .then(characters => {
          res.json(characters)
+      })
+}
+
+function getMyWeapons(req, res) {
+   Weapon.find({ heldBy: req.params.id })
+      .then(weapons => {
+         res.json(weapons)
       })
 }
 
@@ -72,5 +80,6 @@ export {
    create,
    addCharacter,
    getMyBuilds,
-   deleteMyBuild as delete
+   deleteMyBuild as delete,
+   getMyWeapons
 }
