@@ -10,12 +10,13 @@ const RemoveCharacter = (props) => {
   return (
     <>
       <div>
-        <button
-          onClick={removeFromCollection}
-          type="submit"
-          className={styles.removeCharBtn}
-        >
-          Remove from Collection
+        <button 
+            onClick={removeFromCollection}
+            type="submit"  
+            className={`button is-large is-fullwidth is-danger is-rounded`}
+            id={styles.removeBtn} 
+          >
+            Remove from Collection
         </button>
       </div>
     </>

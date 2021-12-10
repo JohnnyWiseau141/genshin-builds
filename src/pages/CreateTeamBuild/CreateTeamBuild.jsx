@@ -6,6 +6,7 @@ import EditCharacter from '../../components/EditCharacter/EditCharacter'
 import EditWeapon from '../../components/EditWeapon/EditWeapon'
 import SelectTeam from '../../components/SelectTeam/SelectTeam'
 import { getProfile } from '../../services/profileService';
+import { Link } from 'react-router-dom';
 
 const CreateTeamBuild = (props) => {
    const defaultImg = 'https://png2.cleanpng.com/sh/7647b85e9ceb0f4134eddbf507242a11/L0KzQYm3VMAzN5d2fZH0aYP2gLBuTfNwdaF6jNd7LXnmf7B6TfRme5x5hAI2d3HvfMHokPVzNaFxjeU2YX7nPb7wjwV0NaRuReRuc4TkgsW0VfFkOmJpSdUEZEe6Qoi1Vck3QGg8TaI6NUK1Roi3WMc3PmU6RuJ3Zx==/kisspng-computer-icons-desktop-wallpaper-plus-and-minus-si-restart-5ac21d1c9d7727.596877501522670876645.png'
@@ -75,10 +76,12 @@ const CreateTeamBuild = (props) => {
                   (<EditWeapon weapons={props.weapons} setIsEditWeapon={setIsEditWeapon} setIsEdit={setIsEdit}
                   />)
             }
-            <button className="button is-light">
-               {/* show once all characters and weapons have been added!!! */}
-               Done
-            </button>
+            <Link to='/profile'>
+               <button className="button is-light">
+                  {/* show once all characters and weapons have been added!!! */}
+                  Done
+               </button>
+            </Link>
          </main>
       </>
    );
