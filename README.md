@@ -4,7 +4,7 @@ Hello and welcome to Genshin Builds! An application where you, the user, can cre
 
 ## Getting started
 
-(Heroku deployment link coming soon)
+[Click here to get started](https://genshin-team-builder.herokuapp.com/)
 
 
 [Trello](https://trello.com/c/pqwooGEy/8-erd)
@@ -18,10 +18,10 @@ ERD:
 ![ERD](public/images/genshinerd.jpg)
 
 Screenshots:
--(landing page screenshot coming soon)
--(profile page screenshot coming soon)
--(create a build screenshot page coming soon)
--(character page screenshot coming soon)
+- (landing page screenshot coming soon)
+- (profile page screenshot coming soon)
+- (create a build screenshot page coming soon)
+- (character page screenshot coming soon)
 
 ### Technologies used:
 
