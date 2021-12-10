@@ -5,33 +5,15 @@ import styles from './CharacterDetails.module.css'
 import CharacterForm from '../../components/CharacterForm/CharacterForm';
 import RemoveCharacter from '../../components/RemoveCharacter/RemoveCharacter';
 
+
 const CharacterDetails = (props) => {
   const [characterDetails, setCharacterDetails] = useState({})
-  // const [handle, setHandle] = useState(true)
-  // const handler = useRef(true)
-
   let location = useLocation()
-
-  // const handleClick = (newValue) => {
-  //   const value = handler.current
-  //   console.log(handler.current)
-  //   handler.current = newValue
-  //   console.log(handler.current)
-  //   setHandle(newValue)
-  // }
-
-  const handleClick = evt => {
-    console.log('working')
-  }
 
   useEffect(() => {
     getCharacterDetails(location.state)
       .then(characterDetails => setCharacterDetails(characterDetails))
   }, [])
-
-  // useEffect(() => {
-  //   setHandle(handler)
-  // }, [handler])
 
   return (
     <>
@@ -50,17 +32,13 @@ const CharacterDetails = (props) => {
             <h1>Nation: {characterDetails.nation}</h1>
             <h1>Rarity: {characterDetails.rarity}</h1>
           </div>
+          <div>
+            <CharacterForm detailId={location.state} characterDetails={characterDetails} />
+          </div>
 
-          {props.myProfile.characters.find(character => character._id) === characterDetails._id ?
-            <div>
-              <RemoveCharacter detailId={location.state} characterDetails={characterDetails} handleClick={handleClick}/>
-            </div>
-            :
-            <div>
-              <CharacterForm detailId={location.state} characterDetails={characterDetails} handleClick={handleClick}/>
-            </div>
-          }
-
+          <div>
+            <RemoveCharacter detailId={location.state} characterDetails={characterDetails} />
+          </div>
         </div>
       </div>
     </>

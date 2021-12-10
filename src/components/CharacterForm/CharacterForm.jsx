@@ -20,7 +20,6 @@ const CharacterForm = (props) => {
       characterWeaponType: `${props.characterDetails.weapon}`,
       rarity: `${props.characterDetails.rarity}`
     })
-    props.handleClick(false)
   }
 
   return (
@@ -28,12 +27,12 @@ const CharacterForm = (props) => {
       <div>
         <form onSubmit={handleSubmit}>
           <div>
-            <button 
+            <button
               onClick={addToCollection}
-              type="submit"  
-              className={`button is-large is-fullwidth is-warning is-rounded`} 
+              type="submit"
+              className={`button is-large is-fullwidth is-warning is-rounded`}
               id={styles.addBtn}
-            > 
+            >
               Add to Collection
             </button>
           </div>
