@@ -3,6 +3,7 @@ import { getProfile, getMyCharacters, createBuild, getMyBuilds } from '../../ser
 import { Link } from 'react-router-dom'
 import Characters from '../../components/Characters/Characters'
 import TeamBuilds from '../../components/TeamBuilds/TeamBuilds'
+import { removeTeamBuild } from '../../services/profileService'
 import styles from './ProfilePage.module.css'
 
 
@@ -45,6 +46,11 @@ const ProfilePage = (props) => {
       })
    },[])
 
+   const handleRemove = builds => {
+      removeTeamBuild(builds._id)
+      setMyTeamBuilds(myTeamBuilds.filter(build => build._id !== builds._id))
+   }
+
    return (
       <>
          <div className={styles.bground}>
@@ -54,7 +60,7 @@ const ProfilePage = (props) => {
                <div className={styles.imgHolder}>
                   <Characters className={styles.charaImage} user={user} myCharacters={myCharacters} />
 
-                  <TeamBuilds user={props.user} myTeamBuilds={myTeamBuilds} />
+                  <TeamBuilds user={props.user} myTeamBuilds={myTeamBuilds} handleRemove={handleRemove}/>
                </div>
                <div>
                   <br/>

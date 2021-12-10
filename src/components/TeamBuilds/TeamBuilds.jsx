@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import styles from '../TeamBuilds/TeamBuilds.module.css'
 
 const TeamBuild = (props) => {
+   
 
    return (
       <>
@@ -19,7 +20,7 @@ const TeamBuild = (props) => {
                      <img src={`https://api.genshin.dev/characters/${builds.character2[0]}/icon`} alt="character2" /> 
                      <img src={`https://api.genshin.dev/characters/${builds.character3[0]}/icon`} alt="character3" /> 
                      <img src={`https://api.genshin.dev/characters/${builds.character4[0]}/icon`} alt="character4" /> 
-                     <button>Delete</button>
+                     <button className='button is-danger' onClick={() => props.handleRemove(builds)}>Delete</button>
                   </div>
                   </>
                   )

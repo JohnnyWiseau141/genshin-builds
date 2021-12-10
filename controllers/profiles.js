@@ -10,61 +10,67 @@ function getProfile(req, res) {
 }
 
 function getMyCharacters(req, res) {
-   Character.find({ collectedBy: req.params.id})
-   .then(characters => {
-      res.json(characters)
-   })
+   Character.find({ collectedBy: req.params.id })
+      .then(characters => {
+         res.json(characters)
+      })
 }
 
-function create(req, res){
+function create(req, res) {
    Build.create(req.body)
-   .then(build => {
-      Profile.findById(req.user.profile)
-      .then(profile => {
-         profile.teamBuilds.push(build._id)
-         profile.save()
+      .then(build => {
+         Profile.findById(req.user.profile)
+            .then(profile => {
+               profile.teamBuilds.push(build._id)
+               profile.save()
+            })
+         res.json(build)
       })
-      res.json(build)
-   })
 }
 
-function addCharacter(req,res){
+function addCharacter(req, res) {
    Build.findByIdAndUpdate(req.params.buildId)
-   .then(build =>{
-      Character.findOne({ characterName: req.body.name })
-      .then(character => {
-         if (parseInt(req.params.selectedIdx) === 0){
-            build.character1.push(character.characterName)
-            build.save()
-         } else if (parseInt(req.params.selectedIdx) === 1) {
-            build.character2.push(character.characterName)
-            build.save()
-         } else if (parseInt(req.params.selectedIdx) === 2){
-            build.character3.push(character.characterName)
-            build.save()
-         } else if (parseInt(req.params.selectedIdx) ===3){
-            build.character4.push(character.characterName)
-            build.save()
-         }
+      .then(build => {
+         Character.findOne({ characterName: req.body.name })
+            .then(character => {
+               if (parseInt(req.params.selectedIdx) === 0) {
+                  build.character1.push(character.characterName)
+                  build.save()
+               } else if (parseInt(req.params.selectedIdx) === 1) {
+                  build.character2.push(character.characterName)
+                  build.save()
+               } else if (parseInt(req.params.selectedIdx) === 2) {
+                  build.character3.push(character.characterName)
+                  build.save()
+               } else if (parseInt(req.params.selectedIdx) === 3) {
+                  build.character4.push(character.characterName)
+                  build.save()
+               }
+            })
+         res.json(build)
       })
+}
+
+function getMyBuilds(req, res) {
+   Build.find({ createdBy: req.params.id })
+      .then(builds => {
+         console.log(builds)
+         res.json(builds)
+      })
+}
+
+function deleteMyBuild(req, res) {
+   Build.findByIdAndDelete(req.params.id)
+   .then(build => {
       res.json(build)
    })
 }
-
-function getMyBuilds(req,res){
-   Build.find({createdBy: req.params.id})
-   .then(builds =>{
-      console.log(builds)
-      res.json(builds)
-   })
-}
-
-
 
 export {
    getProfile,
    getMyCharacters,
    create,
    addCharacter,
-   getMyBuilds
+   getMyBuilds,
+   deleteMyBuild as delete
 }
