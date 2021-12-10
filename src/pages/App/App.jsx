@@ -37,7 +37,7 @@ const App = () => {
 			})
 	}, [])
 
-	useEffect(() => { //meimeimemieimimeimeimeimeimeimimeimemiemiemieimem
+	useEffect(() => {
 		if (user) {
 			getProfile(user.profile)
 				.then(myProfile => {
