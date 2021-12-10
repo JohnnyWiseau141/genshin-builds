@@ -62,7 +62,6 @@ function addCharacter(req, res) {
 function getMyBuilds(req, res) {
    Build.find({ createdBy: req.params.id })
       .then(builds => {
-         console.log(builds)
          res.json(builds)
       })
 }

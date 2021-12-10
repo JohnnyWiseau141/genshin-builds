@@ -32,7 +32,6 @@ const WeaponDetails = (props) => {
   }
 
   const removeFromWeapCollection = evt => {
-    console.log('working')
     evt.preventDefault()
     removeWeaponFromHeld(location.state)
   }
