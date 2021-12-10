@@ -9,8 +9,6 @@
    flex-direction: column;
    justify-content: center;
    align-items: center;
-   padding: 40px;
-   margin: 10px;
 }
 
 .weaponDetails {
@@ -29,8 +27,14 @@
   width: 300px;
 }
 
-.weapBtn {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+#removeWep:hover {
+  background-color: #F962A6;
+}
+
+#addWep {
+  margin: 12px 0;
+}
+
+#addWep:hover {
+  background-color: #F962A6;
 }

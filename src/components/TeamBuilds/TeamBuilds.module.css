@@ -2,3 +2,13 @@
    align-self: center;
    color: rgb(239, 242, 244);
 }
+
+.characterIcon {
+   padding: 20px;
+}
+
+.teamContainer {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}

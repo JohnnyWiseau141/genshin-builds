@@ -6,12 +6,39 @@
    text-align: center;
 }
 
-.imgHolder {
+.Characters {
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   column-gap: 5vh;
+   row-gap: 5vh;
+}
+
+.Weapons {
    display: flex;
    justify-content: center;
    flex-wrap: wrap;
    column-gap: 5vh;
    row-gap: 5vh;
+   margin: 30px 0;
+}
+
+.TeamBuilds {
+   display: flex;
+   flex-flow: row wrap;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
+   column-gap: 5vh;
+   row-gap: 5vh;
+   margin: 30px 0;
+}
+
+.createBuild {
+   display: flex;
+   justify-content: center;
 }
 
 .bground {
