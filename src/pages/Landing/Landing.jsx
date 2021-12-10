@@ -13,9 +13,9 @@ const Landing = ({ user }) => {
           </h1>
           {user &&
             <>
-              <h3>Click Explore Characters to Get Started!!</h3>
+              <h3 className="is-size-3">Click Explore Characters to Get Started!!</h3>
               <div>
-                <Link className="button is-primary" to="/characters">Explore Characters</Link>
+                <Link className="button is-primary m-3" to="/characters">Explore Characters</Link>
               </div>
             </>}
           <p className={`mx-5 my-3 ${styles.about_us_p}`}>About Us: Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate placeat laboriosam<br /> blanditiis repudiandae? Nesciunt, obcaecati quasi fugiat animi eligendi harum, nisi quisquam <br />eveniet soluta sed facilis distinctio et tempora vitae.</p>

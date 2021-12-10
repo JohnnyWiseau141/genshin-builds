@@ -13,20 +13,20 @@ const LoginForm = (props) => {
   const handleChange = e => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value 
+      [e.target.name]: e.target.value
     })
   }
 
   const handleSubmit = evt => {
     evt.preventDefault()
     authService.login(formData)
-    .then(() => {
-      props.handleSignupOrLogin()
-      navigate('/')
-    })
-    .catch(err => {
-      alert('Invalid Credentials')
-    })
+      .then(() => {
+        props.handleSignupOrLogin()
+        navigate('/')
+      })
+      .catch(err => {
+        alert('Invalid Credentials')
+      })
   }
 
   return (
@@ -35,36 +35,43 @@ const LoginForm = (props) => {
       onSubmit={handleSubmit}
       className={styles.container}
     >
-      <div className={styles.inputContainer}>
-        <label htmlFor="email" className={styles.label}>Email</label>
-        <input
-          type="text"
-          autoComplete="off"
-          id="email"
-          value={formData.email}
-          name="email"
-          onChange={handleChange}
-        />
+      <div className={`field px-6 py-4 ${styles.inputContainer}`}>
+        <label htmlFor="email" className={`label has-text-white ${styles.label}`}>Email</label>
+        <div className="control mx-6">
+          <input
+            className="input"
+            type="text"
+            autoComplete="off"
+            id="email"
+            value={formData.email}
+            name="email"
+            placeholder="e.g. alex@gmail.com"
+            onChange={handleChange}
+          />
+        </div>
       </div>
-      <div className={styles.inputContainer}>
-        <label htmlFor="password" className={styles.label}>Password</label>
-        <input
-          type="password"
-          autoComplete="off"
-          id="password"
-          value={formData.pw}
-          name="pw"
-          onChange={handleChange}
-        />
+      <div className={`field px-6 py-4 ${styles.inputContainer}`}>
+        <label htmlFor="password " className={`label has-text-white ${styles.label}`}>Password</label>
+        <div className="control mx-6">
+          <input
+            className="input"
+            type="password"
+            autoComplete="off"
+            id="password"
+            value={formData.pw}
+            name="pw"
+            onChange={handleChange}
+          />
+        </div>
       </div>
       <div>
-        <button className={styles.button}>Log In</button>
+        <button className={`button is-submit mx-1 ${styles.button}`}>Log In</button>
         <Link to="/">
-          <button>Cancel</button>
+          <button className="button is-danger mx-1">Cancel</button>
         </Link>
       </div>
     </form>
   );
 }
- 
+
 export default LoginForm;

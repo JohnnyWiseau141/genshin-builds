@@ -7,7 +7,7 @@ const LoginPage = (props) => {
   <main className={styles.container}>
     <div className={styles.bground}></div>
       <div className={styles.text}>
-        <h1>Log In</h1>
+        <h1 className="is-size-2">Log In</h1>
         <LoginForm handleSignupOrLogin={props.handleSignupOrLogin} />
       </div>
     
