@@ -77,10 +77,10 @@ const CreateTeamBuild = (props) => {
                   />)
             }
             <Link to='/profile'>
-               <button className="button is-light">
-                  {/* show once all characters and weapons have been added!!! */}
-                  Done
-               </button>
+                  <button className="button is-light">
+                     {/* show once all characters and weapons have been added!!! */}
+                     Done
+                  </button>
             </Link>
          </main>
       </>

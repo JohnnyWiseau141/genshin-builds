@@ -18,10 +18,10 @@ const TeamBuild = (props) => {
                props.myTeamBuilds.map(builds =>
                   <>
                   <div className={styles.teamContainer}>
-                     <img src={`https://api.genshin.dev/characters/${builds.character1[0]}/icon`} alt="character1" /> 
-                     <img src={`https://api.genshin.dev/characters/${builds.character2[0]}/icon`} alt="character2" /> 
-                     <img src={`https://api.genshin.dev/characters/${builds.character3[0]}/icon`} alt="character3" /> 
-                     <img src={`https://api.genshin.dev/characters/${builds.character4[0]}/icon`} alt="character4" /> 
+                     <img className={styles.characterIcon} src={`https://api.genshin.dev/characters/${builds.character1[0]}/icon`} alt="character1" /> 
+                     <img className={styles.characterIcon} src={`https://api.genshin.dev/characters/${builds.character2[0]}/icon`} alt="character2" /> 
+                     <img className={styles.characterIcon} src={`https://api.genshin.dev/characters/${builds.character3[0]}/icon`} alt="character3" /> 
+                     <img className={styles.characterIcon} src={`https://api.genshin.dev/characters/${builds.character4[0]}/icon`} alt="character4" /> 
                      <button className='button is-danger' onClick={() => props.handleRemove(builds)}>Delete</button>
                   </div>
                   </>

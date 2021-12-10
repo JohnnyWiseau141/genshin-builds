@@ -64,28 +64,29 @@ const ProfilePage = (props) => {
       <>
          <div className={styles.bground}>
             <main className={`${styles.profile_page}`}>
-               <h1 className={`is-size-2 p-4 ${styles.text}`}>{myProfile.name}'s character collection:</h1>
+               <h1 className={`is-size-2 p-4 ${styles.text}`}>{myProfile.name}'s Genshin Impact Collection:</h1>
                <br />
                
-               <div className={styles.imgHolder}>
+               <div className={styles.Weapons}>
                   <Weapons user={user} myWeapons={myWeapons} />
                </div>
 
-               <div className={styles.imgHolder}>
+               <div className={styles.Characters}>
                   <Characters user={user} myCharacters={myCharacters} />
                </div>
 
-               <div className="p-5">
+               <div className={styles.TeamBuilds}>
                   <TeamBuilds user={props.user} myTeamBuilds={myTeamBuilds} handleRemove={handleRemove} />
                </div>
 
                <div>
                   <br />
                   <Link
-                     className="button"
+                     className="button is-primary"
                      to='/createTeamBuild'
                      onClick={addToCollection}
                      state={myCharacters}
+                     id={styles.createBuild}
                   >Create a Build</Link>
                </div>
             </main>

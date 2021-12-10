@@ -60,7 +60,8 @@ const WeaponDetails = (props) => {
           <button 
             onClick={addToWeapCollection}
             type="submit"  
-            className={styles.weapBtn} 
+            className={`button is-large is-fullwidth is-warning is-rounded`} 
+            id={styles.addWep}
           >
             Add to Collection
           </button>
@@ -69,7 +70,8 @@ const WeaponDetails = (props) => {
         <button 
           onClick={removeFromWeapCollection}
           type="submit"  
-          className={styles.weapBtn} 
+          className={`button is-large is-fullwidth is-danger is-rounded`} 
+          id={styles.removeWep}
         >
           Remove from Collection
         </button>
