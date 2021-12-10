@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const NavBar = ({ user, handleLogout }) => {
 	const [isActive, setIsActive] = useState(false)
-	
+
 	const handleActive = evt => {
 		setIsActive(!isActive)
 	}
@@ -21,18 +21,35 @@ const NavBar = ({ user, handleLogout }) => {
 							height="34" />
 						Genshin Builds
 					</Link>
-					<a role="button" onClick={() => handleActive()}class="navbar-burger" aria-label="menu">
+					<a role="button" onClick={() => handleActive()} class="navbar-burger" aria-label="menu">
 						<span aria-hidden="true"></span>
 						<span aria-hidden="true"></span>
 						<span aria-hidden="true"></span>
 					</a>
 				</div>
-				<div className={`navbar-menu${isActive ? " is-active" : ""}`}id="genshin-navbar">
+				<div className={`navbar-menu${isActive ? " is-active" : ""}`} id="genshin-navbar">
 					<div className="navbar-start">
 						<Link className="navbar-item" to="/">Home</Link>
 						<Link className="navbar-item" to="/profile">My Profile</Link>
 						<Link className="navbar-item" to="/characters">Characters</Link>
 						<Link className="navbar-item" to="/weapons">Weapons</Link>
+						<div class="navbar-item has-dropdown is-hoverable">
+							<a class="navbar-link">
+								Docs
+							</a>
+							<div class="navbar-dropdown">
+								<a class="navbar-item">
+									About us
+								</a>
+								<a class="navbar-item">
+									Elements
+								</a>
+								<hr class="navbar-divider" />
+								<div class="navbar-item">
+									Version 3.6.1
+								</div>
+							</div>
+						</div>
 					</div>
 
 					<div className="navbar-end">
