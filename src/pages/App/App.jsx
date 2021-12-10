@@ -14,9 +14,11 @@ import CreateTeamBuild from '../CreateTeamBuild/CreateTeamBuild'
 import * as authService from '../../services/authService'
 import { getAllCharacters } from '../../services/characterService'
 import { getAllWeapons } from '../../services/weaponService'
+import { getProfile } from '../../services/profileService'
 
 const App = () => {
 	const [user, setUser] = useState(authService.getUser())
+	const [myProfile, setMyProfile] = useState(user)
 	const [characters, setCharacters] = useState([])
 	const [weapons, setWeapons] = useState([])
 	const navigate = useNavigate()
@@ -33,6 +35,15 @@ const App = () => {
 			.then(weapons => {
 				setWeapons(weapons)
 			})
+	}, [])
+
+	useEffect(() => { //meimeimemieimimeimeimeimeimeimimeimemiemiemieimem
+		if (user) {
+			getProfile(user.profile)
+				.then(myProfile => {
+					setMyProfile(myProfile)
+				})
+		}
 	}, [])
 
 	const handleLogout = () => {
@@ -56,7 +67,7 @@ const App = () => {
 				<Route path='/profile' element={user ? <ProfilePage user={user} weapons={weapons} characters={characters} /> : <Navigate to='/login' />} />
 				<Route path='/characters' element={<CharacterIndex user={user} characters={characters} />} />
 				<Route path='/weapons' element={<WeaponIndex user={user} weapons={weapons} />} />
-				<Route path='/characterDetails' element={<CharacterDetails user={user} characters={characters} />} />
+				<Route path='/characterDetails' element={<CharacterDetails user={user} characters={characters} myProfile={myProfile} />} />
 				<Route path='/weaponDetails' element={<WeaponDetails user={user} weapons={weapons} />} />
 				<Route path='/createTeamBuild' element={<CreateTeamBuild user={user} weapons={weapons} characters={characters} />} />
 			</Routes>
