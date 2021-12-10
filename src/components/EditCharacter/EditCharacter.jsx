@@ -8,13 +8,10 @@ const EditCharacter = (props) => {
    const allCharacters = props.myCharacters
    const [myProfile, setMyProfile] = useState(props.profile)
    const location = useLocation()
-   console.log(props.user.profile)
-   console.log(myProfile.teamBuilds[myProfile.teamBuilds.length-1])
 
    const changeImage = (evt) => {
       props.setIsEditWeapon(false)
       props.changeBoxImg(evt.target.id)
-      console.log(evt.target.id)
       addCharacter(props.user.profile, myProfile.teamBuilds[myProfile.teamBuilds.length-1], { name: evt.target.id}, props.selectedIdx)
       .then(()=>{
          console.log('executed')

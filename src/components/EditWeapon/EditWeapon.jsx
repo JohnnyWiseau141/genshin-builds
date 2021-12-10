@@ -4,7 +4,6 @@ import styles from './EditWeapon.module.css'
 const EditWeapon = (props) => {
   
   const handleClick = (evt) => {
-    console.log(evt.target.id)
     props.setIsEdit(true)
     props.setIsEditWeapon(true)
   }
