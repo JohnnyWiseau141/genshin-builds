@@ -7,22 +7,24 @@ const Landing = ({ user }) => {
     <>
       <main className={styles.landing_container}>
         <div className={styles.bg_image}></div>
-        <div className={`${styles.text}`}>
-          <h1>
+        <div className={`p-5 ${styles.text}`}>
+          <h1 className="is-size-1 mt-3">
             Welcome{user ? `, ${user.name}` : ""}
           </h1>
           {user &&
             <>
               <h3>Click Explore Characters to Get Started!!</h3>
               <div>
-                <Link className="button" to="/characters">Explore Characters</Link>
+                <Link className="button is-primary" to="/characters">Explore Characters</Link>
               </div>
             </>}
-          <p className={styles.about_us_p}>About Us: Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate placeat laboriosam<br /> blanditiis repudiandae? Nesciunt, obcaecati quasi fugiat animi eligendi harum, nisi quisquam <br />eveniet soluta sed facilis distinctio et tempora vitae.</p>
+          <p className={`mx-5 my-3 ${styles.about_us_p}`}>About Us: Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate placeat laboriosam<br /> blanditiis repudiandae? Nesciunt, obcaecati quasi fugiat animi eligendi harum, nisi quisquam <br />eveniet soluta sed facilis distinctio et tempora vitae.</p>
           {!user &&
             <>
-              <Link className="btn" to="/login">Login</Link>
-              <Link className="btn" to="/signup">Sign Up</Link>
+              <div>
+                <Link className="button is-light m-3" to="/login">Login</Link>
+                <Link className="button is-info m-3" to="/signup">Sign Up</Link>
+              </div>
             </>
           }
         </div>

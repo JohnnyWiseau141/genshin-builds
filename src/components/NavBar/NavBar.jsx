@@ -11,14 +11,14 @@ const NavBar = ({ user, handleLogout }) => {
 
 	return (
 		<>
-			<nav className="navbar">
+			<nav className="navbar is-light">
 				<div className="navbar-brand">
 					<Link to="/" className="navbar-item">
 						{/* Temporary Image */}
 						<img src="https://ih1.redbubble.net/image.1816083712.5142/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg"
 							alt="placeholder"
-							width="30"
-							height="30" />
+							width="28"
+							height="34" />
 						Genshin Builds
 					</Link>
 					<a role="button" onClick={() => handleActive()}class="navbar-burger" aria-label="menu">
