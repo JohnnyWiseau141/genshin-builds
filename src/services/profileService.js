@@ -44,6 +44,13 @@ function getMyBuilds(id) {
       .then(res => res.json())
 }
 
+function getMyWeapons(id) {
+   return fetch(`${BASE_URL}/${id}/weapons`, {
+      headers: { Authorization: `Bearer ${tokenService.getToken()}` }
+   })
+      .then(res => res.json())
+}
+
 function removeTeamBuild(id){
    return fetch(`${BASE_URL}/${id}/builds`, {
       method: 'DELETE',
@@ -58,5 +65,6 @@ export {
    createBuild,
    addCharacter,
    getMyBuilds,
-   removeTeamBuild
+   removeTeamBuild,
+   getMyWeapons
 }

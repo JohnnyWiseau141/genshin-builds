@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { getProfile, getMyCharacters, createBuild, getMyBuilds } from '../../services/profileService'
+import { getProfile, getMyCharacters, createBuild, getMyBuilds, getMyWeapons } from '../../services/profileService'
 import { Link } from 'react-router-dom'
 import Characters from '../../components/Characters/Characters'
 import TeamBuilds from '../../components/TeamBuilds/TeamBuilds'
+import Weapons from '../../components/Weapons/Weapons'
 import { removeTeamBuild } from '../../services/profileService'
 import styles from './ProfilePage.module.css'
 
@@ -12,6 +13,7 @@ const ProfilePage = (props) => {
    const [myProfile, setMyProfile] = useState(user)
    const [myCharacters, setMyCharacters] = useState([])
    const [myTeamBuilds, setMyTeamBuilds] = useState([])
+   const [myWeapons, setMyWeapons] = useState([])
 
    const [formData, setFormData] = useState({
       createdBy: props.user.profile,
@@ -46,6 +48,13 @@ const ProfilePage = (props) => {
          })
    }, [])
 
+   useEffect(() => {
+      getMyWeapons(props.user.profile)
+         .then(getMyWeapons => {
+            setMyWeapons(getMyWeapons)
+         })
+   }, [])
+
    const handleRemove = builds => {
       removeTeamBuild(builds._id)
       setMyTeamBuilds(myTeamBuilds.filter(build => build._id !== builds._id))
@@ -57,12 +66,19 @@ const ProfilePage = (props) => {
             <main className={`${styles.profile_page}`}>
                <h1 className={`is-size-2 p-4 ${styles.text}`}>{myProfile.name}'s character collection:</h1>
                <br />
+               
+               <div className={styles.imgHolder}>
+                  <Weapons user={user} myWeapons={myWeapons} />
+               </div>
+
                <div className={styles.imgHolder}>
                   <Characters user={user} myCharacters={myCharacters} />
                </div>
+
                <div className="p-5">
                   <TeamBuilds user={props.user} myTeamBuilds={myTeamBuilds} handleRemove={handleRemove} />
                </div>
+
                <div>
                   <br />
                   <Link
