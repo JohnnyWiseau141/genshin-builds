@@ -7,30 +7,27 @@ import RemoveCharacter from '../../components/RemoveCharacter/RemoveCharacter';
 
 const CharacterDetails = (props) => {
   const [characterDetails, setCharacterDetails] = useState({})
-  // const [handler, setHandler] = useState(true)
+  const [handle, setHandle] = useState(true)
   const handler = useRef(true)
+  
+  let location = useLocation()
 
   const handleClick = (newValue) => {
     const value = handler.current
     console.log(handler.current)
     handler.current = newValue
-    console.log(newValue)
+    console.log(handler.current)
+    setHandle(newValue)
   }
-
-  let location = useLocation()
 
   useEffect(()=> {
     getCharacterDetails(location.state)
     .then(characterDetails => setCharacterDetails(characterDetails))
   },[])
 
-  // const handleClick = (variable) => {
-	// 	setHandler(variable)
-	// }
-
-  // useEffect(()=> {
-  //   handler = handler
-  // })
+  useEffect(()=> {
+    setHandle(handler)
+  },[handler])
   
   return (  
     <>
@@ -51,12 +48,12 @@ const CharacterDetails = (props) => {
       </div>
 
       {/* if handler is true, display CharacterForm component */}
-      <div className={ handler ? (null) : (styles.characterForm)}>
+      <div className={ handle ? (null) : (styles.characterForm)}>
         <CharacterForm detailId={location.state} characterDetails={characterDetails} handler={handler} handleClick={handleClick} />
       </div>
 
       {/* if handler is false, display RemoveCharacter component */}
-      <div className={ handler ? (styles.removeCharacter) : (null)}>
+      <div className={ handle ? (styles.removeCharacter) : (null)}>
         <RemoveCharacter detailId={location.state} characterDetails={characterDetails} handler={handler} handleClick={handleClick} />
       </div>
       </div>
