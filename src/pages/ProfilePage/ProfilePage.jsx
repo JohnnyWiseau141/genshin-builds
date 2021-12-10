@@ -39,12 +39,12 @@ const ProfilePage = (props) => {
          })
    }, [])
 
-   useEffect(() =>{
+   useEffect(() => {
       getMyBuilds(props.user.profile)
-      .then(getMyBuilds =>{
-         setMyTeamBuilds(getMyBuilds)
-      })
-   },[])
+         .then(getMyBuilds => {
+            setMyTeamBuilds(getMyBuilds)
+         })
+   }, [])
 
    const handleRemove = builds => {
       removeTeamBuild(builds._id)
@@ -54,16 +54,17 @@ const ProfilePage = (props) => {
    return (
       <>
          <div className={styles.bground}>
-            <main className={styles.profile_page}>
-               <h1 className={styles.text}>{myProfile.name}'s character collection:</h1>
+            <main className={`${styles.profile_page}`}>
+               <h1 className={`is-size-2 p-4 ${styles.text}`}>{myProfile.name}'s character collection:</h1>
                <br />
                <div className={styles.imgHolder}>
-                  <Characters className={styles.charaImage} user={user} myCharacters={myCharacters} />
-
-                  <TeamBuilds user={props.user} myTeamBuilds={myTeamBuilds} handleRemove={handleRemove}/>
+                  <Characters user={user} myCharacters={myCharacters} />
+               </div>
+               <div className="p-5">
+                  <TeamBuilds user={props.user} myTeamBuilds={myTeamBuilds} handleRemove={handleRemove} />
                </div>
                <div>
-                  <br/>
+                  <br />
                   <Link
                      className="button"
                      to='/createTeamBuild'
