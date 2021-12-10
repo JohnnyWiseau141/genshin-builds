@@ -7,8 +7,8 @@ const Landing = ({ user }) => {
     <>
       <main className={styles.landing_container}>
         <div className={styles.bg_image}></div>
-        <div className={`p-5 ${styles.text}`}>
-          <h1 className="is-size-1 mt-3">
+        <div className={`p-6 ${styles.text}`}>
+          <h1 className="is-size-1 mb-3">
             Welcome{user ? `, ${user.name}` : ""}
           </h1>
           {user &&
@@ -18,7 +18,9 @@ const Landing = ({ user }) => {
                 <Link className="button is-primary m-3" to="/characters">Explore Characters</Link>
               </div>
             </>}
-          <p className={`mx-5 my-3 ${styles.about_us_p}`}>About Us: Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate placeat laboriosam<br /> blanditiis repudiandae? Nesciunt, obcaecati quasi fugiat animi eligendi harum, nisi quisquam <br />eveniet soluta sed facilis distinctio et tempora vitae.</p>
+          <div>
+            <p className="mt-2 mb-4">About Us: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum quo doloremque <br />pariatur qui vero! Minima, esse temporibus. Dicta mollitia quisquam accusamus earum fuga <br />sunt, cumque expedita unde id similique et.</p>
+          </div>
           {!user &&
             <>
               <div>
@@ -27,6 +29,16 @@ const Landing = ({ user }) => {
               </div>
             </>
           }
+          <p class="buttons mt-3 is-align-self-center">
+            <a href="https://github.com/JohnnyWiseau141/genshin-builds">
+              <button class="button">
+                <span class="icon">
+                  <i class="fab fa-github"></i>
+                </span>
+                <span>GitHub</span>
+              </button>
+            </a>
+          </p>
         </div>
       </main>
     </>
