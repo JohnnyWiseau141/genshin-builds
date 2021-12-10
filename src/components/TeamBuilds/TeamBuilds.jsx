@@ -8,7 +8,9 @@ const TeamBuild = (props) => {
 
    return (
       <>
-         <h1>My Team Builds</h1>
+         <div>
+            <h1 className={`is-size-2 p-4 ${styles.text}`}>My Team Builds</h1>
+         </div>
 
          <div>
             {props.myTeamBuilds ?
