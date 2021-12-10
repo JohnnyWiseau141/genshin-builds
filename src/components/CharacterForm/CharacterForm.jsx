@@ -31,7 +31,8 @@ const CharacterForm = (props) => {
             <button 
               onClick={addToCollection}
               type="submit"  
-              className={styles.addCharBtn} 
+              className={`button is-large is-fullwidth is-warning is-rounded`} 
+              id={styles.addBtn}
             > 
               Add to Collection
             </button>

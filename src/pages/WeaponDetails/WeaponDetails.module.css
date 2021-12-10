@@ -5,6 +5,12 @@
    background-size: cover;
    background-repeat: no-repeat;
    background-position: center;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   padding: 40px;
+   margin: 10px;
 }
 
 .weaponDetails {
@@ -19,6 +25,8 @@
   margin-right: auto;
   background-color: rgb(108, 27, 184, .5);
   border-radius: 30px;
+  height: 300px;
+  width: 300px;
 }
 
 .weapBtn {
