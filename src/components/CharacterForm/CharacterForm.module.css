@@ -1,0 +1,9 @@
+#addBtn {
+  position: relative;
+  right: 130px;
+  margin: 12px 0;
+}
+
+#addBtn:hover {
+  background-color: #F962A6;
+}
