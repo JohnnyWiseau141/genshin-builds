@@ -1,44 +1,52 @@
 import * as tokenService from '../services/tokenService'
 const BASE_URL = '/api/profile'
 
-function getProfile(id){
+function getProfile(id) {
    return fetch(`${BASE_URL}/${id}`, {
       headers: { Authorization: `Bearer ${tokenService.getToken()}` }
    })
-   .then(res => res.json())
+      .then(res => res.json())
 }
 
-function getMyCharacters(id){
+function getMyCharacters(id) {
    return fetch(`${BASE_URL}/${id}/characters`, {
       headers: { Authorization: `Bearer ${tokenService.getToken()}` }
    })
-   .then(res => res.json())
+      .then(res => res.json())
 }
 
-function createBuild(id, buildData){
+function createBuild(id, buildData) {
    return fetch(`${BASE_URL}/${id}/builds`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
+         'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
       },
       body: JSON.stringify(buildData)
-    })
-    .then(res => res.json())
+   })
+      .then(res => res.json())
 }
 
-function addCharacter(id, buildId, character, selectedIdx){
+function addCharacter(id, buildId, character, selectedIdx) {
    return fetch(`${BASE_URL}/${id}/builds/${buildId}/${selectedIdx}`, {
       method: 'PATCH',
       headers: {
-        'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
+         'Authorization': `Bearer ${tokenService.getToken()}`, 'Content-Type': 'application/json'
       },
       body: JSON.stringify(character)
-    })
-    .then(res => res.json())
-   }
+   })
+      .then(res => res.json())
+}
 
-function getMyBuilds(id){
+function getMyBuilds(id) {
    return fetch(`${BASE_URL}/${id}/builds`, {
+      headers: { Authorization: `Bearer ${tokenService.getToken()}` }
+   })
+      .then(res => res.json())
+}
+
+function removeTeamBuild(id){
+   return fetch(`${BASE_URL}/${id}/builds`, {
+      method: 'DELETE',
       headers: { Authorization: `Bearer ${tokenService.getToken()}` }
    })
       .then(res => res.json())
@@ -49,5 +57,6 @@ export {
    getMyCharacters,
    createBuild,
    addCharacter,
-   getMyBuilds
+   getMyBuilds,
+   removeTeamBuild
 }
