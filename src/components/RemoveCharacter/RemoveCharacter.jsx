@@ -14,7 +14,8 @@ const RemoveCharacter = (props) => {
         <button 
             onClick={removeFromCollection}
             type="submit"  
-            className={styles.removeCharBtn} 
+            className={`button is-large is-fullwidth is-danger is-rounded`}
+            id={styles.removeBtn} 
           >
             Remove from Collection
         </button>
