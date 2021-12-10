@@ -1,6 +1,6 @@
 # Genshin Builds
 
-Hello and welcome to Genshin Builds! An application where you, the user, can create your own hypothetical team build in Genshin Impact.
+Hello and welcome to Genshin Builds! An application where you, the user, can create your own hypothetical team builds in Genshin Impact.
 
 ## Getting started
 
@@ -16,6 +16,13 @@ Wireframe:
 
 ERD:
 ![ERD](public/images/genshinerd.jpg)
+
+## User Stories
+- AAU I want to be able to navigate to an "All Weapons" page so that I can view all weapons on a single page.</br>
+- AAU I want to be able to sign up to the application so that I can log on to my own profile.
+- AAU I want to browse all characters so that I can add them to my collection.
+- AAU I want to be able to add, edit, and/or delete team builds from my profile.
+- AAU I want to collect characters/weapons so that I can create team builds in my profile.
 
 Screenshots:
 - (landing page screenshot coming soon)
@@ -51,5 +58,8 @@ Genshin Impact and miHoYo are trademarks or registered trademarks of miHoYo. Gen
 
 ### Stretch Goals:
 
-- Adding artifacts to characters
-- Navigate to other user's profiles and view their builds and collections
+- Add functionality to equip weapons to a user's characters
+- Add functionality to directly update builds
+- Add functionality to navigate to other user's profiles and view their builds and character/weapons collections
+- Add functionality to hide "Add to Collection" button for characters that are in the user's collection
+- Add functionality to add avatar to profile
