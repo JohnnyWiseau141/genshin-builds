@@ -29,7 +29,7 @@ app.use('/api/builds', buildsRouter)
 
 app.get('/*', function (req, res) {
   res.sendFile(
-    path.dirname(fileURLToPath(import.meta.url), 'build', 'index.html')
+    path.resolve("build/index.html")
   )
 })
 
