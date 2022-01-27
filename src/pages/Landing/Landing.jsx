@@ -19,7 +19,7 @@ const Landing = ({ user }) => {
               </div>
             </>}
           <div>
-            <p className="mt-2 mb-4">About Us: Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eum quo doloremque <br />pariatur qui vero! Minima, esse temporibus. Dicta mollitia quisquam accusamus earum fuga <br />sunt, cumque expedita unde id similique et.</p>
+            <p className="mt-2 mb-4">About Us: Hello there! And welcome to our application-- Genshin Builds! <br /> We are a group of software engineers testing our skills and using it to deploy an application featuring a video game we all enjoy playing! We hope you find the application useful and informative for any and all Genshin Impact players out there.</p>
           </div>
           {!user &&
             <>
