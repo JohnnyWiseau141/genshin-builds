@@ -73,7 +73,7 @@ const CreateTeamBuild = (props) => {
                   />)
                   :
                   // <h1>weapons here</h1>
-                  (<EditWeapon weapons={props.weapons} setIsEditWeapon={setIsEditWeapon} setIsEdit={setIsEdit}
+                  (<EditWeapon user={user} weapons={props.weapons} setIsEditWeapon={setIsEditWeapon} setIsEdit={setIsEdit}
                   />)
             }
             <Link to='/profile'>
