@@ -76,12 +76,14 @@ const CreateTeamBuild = (props) => {
                   (<EditWeapon user={user} weapons={props.weapons} setIsEditWeapon={setIsEditWeapon} setIsEdit={setIsEdit}
                   />)
             }
-            <Link to='/profile'>
+            {(boxOne !== defaultImg && boxTwo !== defaultImg && boxThree !== defaultImg && boxFour !== defaultImg) ? 
+            (<Link to='/profile'>
                   <button className="button is-light">
                      {/* show once all characters and weapons have been added!!! */}
                      Done
                   </button>
-            </Link>
+            </Link>) : ('')
+            }
          </main>
       </>
    );
