@@ -5,6 +5,7 @@
    align-content: center;
    text-align: center;
    overflow: scroll;
+   height: 100%;
 }
 
 .Characters {
