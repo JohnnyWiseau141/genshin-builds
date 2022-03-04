@@ -1,10 +1,11 @@
-.profile_page{
+.profile_page {
    display: flex;
    flex-direction: column;
    justify-content: center;
    align-content: center;
    text-align: center;
    height: 100vh;
+   overflow: scroll;
 }
 
 .Characters {
