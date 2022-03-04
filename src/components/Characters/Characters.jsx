@@ -14,7 +14,8 @@ const Characters = (props) => {
                      <div key={character.characterName} className={styles.icon}>
                         <Link to={`/characterDetails`} state={character.characterName.toLowerCase()}>
                            <img className={styles.characterIcon} key={character.characterName} src={`https://api.genshin.dev/characters/${character.characterName.toLowerCase()}/icon`} alt="icon" />
-                           <p>{character.characterName}</p>
+                           <p>{character.characterName[0].toUpperCase() + character.characterName.slice(1,20)}</p>
+                           {/* add a handler for the longer names and ones with a "-" in it */}
                         </Link>
                      </div>
                   </>

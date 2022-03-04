@@ -64,9 +64,9 @@ const ProfilePage = (props) => {
       <>
          <div className={styles.bground}>
             <main className={`${styles.profile_page}`}>
-               <h1 className={`is-size-2 p-4 ${styles.text}`}>{myProfile.name}'s Genshin Impact Collection:</h1>
+               <h1 className={`is-size-2 p-4 ${styles.text}`}>My Collection</h1>
                <br />
-               
+
                <div className={styles.Weapons}>
                   <Weapons user={user} myWeapons={myWeapons} />
                </div>
@@ -79,7 +79,7 @@ const ProfilePage = (props) => {
                   <TeamBuilds user={props.user} myTeamBuilds={myTeamBuilds} handleRemove={handleRemove} />
                </div>
 
-               <div>
+               <div className={styles.createBuild}>
                   <br />
                   <Link
                      className="button is-primary"
