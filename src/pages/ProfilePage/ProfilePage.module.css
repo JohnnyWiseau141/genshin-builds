@@ -4,7 +4,6 @@
    justify-content: center;
    align-content: center;
    text-align: center;
-   overflow: scroll;
    height: 100%;
 }
 
@@ -54,6 +53,7 @@
 
 
 .text {
+   margin-top: 50px;
    align-self: center;
    background-color: rgba(63, 73, 131, 0.4);
    color: rgb(239, 242, 244);
@@ -63,4 +63,12 @@
 .charaImage {
    background-color: rgba(94, 54, 176, 0.5);
    border-radius: 5px;
+}
+
+.createBuild{
+   margin-bottom: 50px;
+}
+
+a:link, a:hover{
+   color: white;
 }

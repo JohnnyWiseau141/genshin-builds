@@ -14,7 +14,8 @@ const Weapons = (props) => {
                      <div key={weapon.weaponName} className={styles.icon}>
                         <Link to={`/weaponDetails`} state={weapon.weaponName.toLowerCase()}>
                            <img className={styles.weaponIcon} key={weapon.weaponName} src={`https://api.genshin.dev/weapons/${weapon.weaponName.toLowerCase()}/icon`} alt="icon" />
-                           <p>{weapon.weaponName}</p>
+                           <p>{weapon.weaponName[0].toUpperCase() + weapon.weaponName.slice(1,20)}</p>
+                           {/* add weapon name handler here */}
                         </Link>
                      </div>
                   </>
