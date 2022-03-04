@@ -33,7 +33,7 @@ const NavBar = ({ user, handleLogout }) => {
 						<Link className="navbar-item" to="/profile">My Profile</Link>
 						<Link className="navbar-item" to="/characters">Characters</Link>
 						<Link className="navbar-item" to="/weapons">Weapons</Link>
-						<Link className="navbar-item" to="/publicBuilds">Public Builds</Link>
+						{/* <Link className="navbar-item" to="/publicBuilds">Public Builds</Link> commented out for production. to work on later */}
 						<div class="navbar-item has-dropdown is-hoverable">
 							<a class="navbar-link">
 								Docs
