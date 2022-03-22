@@ -4,8 +4,7 @@
    justify-content: center;
    align-content: center;
    text-align: center;
-   height: 100vh;
-   overflow: scroll;
+   margin-top: 52px;
 }
 
 .Characters {
@@ -45,11 +44,12 @@
 
 .bground {
    background-image: url("https://i.redd.it/1jlnjvd3n8z61.png");
-   width: 102%;
-   height: 100%;
+   width: 100%;
+   height: 100vh;
    background-size: cover;
    background-repeat: no-repeat;
-   background-position: center;
+   background-position: fixed;
+   overflow-y: auto;
 }
 
 
