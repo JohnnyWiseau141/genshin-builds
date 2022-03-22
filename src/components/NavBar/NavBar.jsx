@@ -11,7 +11,7 @@ const NavBar = ({ user, handleLogout }) => {
 
 	return (
 		<>
-			<nav className="navbar is-light">
+			<nav className="navbar is-light is-fixed-top">
 				<div className="navbar-brand">
 					<Link to="/" className="navbar-item">
 						{/* Temporary Image */}
