@@ -1,16 +1,13 @@
 .container {
-  margin: 20px 50px 100px 50px;
+  margin: 72px 50px 100px 50px;
   display: flex;
-  /* flex-flow: row wrap; */
   flex-wrap: wrap;
-  /* background-image: url("https://64.media.tumblr.com/baf5fb73a45b27854ae973fcc9eaa55d/c7d28b43e423a92c-81/s2048x3072/c2866fe301fcc109a175afde2d21d5cf215c3996.png") ; */
   justify-content: center;
   row-gap: 20px;
   column-gap: 20px;
 }
 
 .weaponIcon {
-  /* float: left; */
   width:  100px;
   height: 100px;
   object-fit: cover;
