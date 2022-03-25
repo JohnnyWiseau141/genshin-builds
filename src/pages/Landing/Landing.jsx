@@ -31,10 +31,7 @@ const Landing = ({ user }) => {
           }
           <p class="buttons mt-3 is-align-self-center">
             <a href="https://github.com/JohnnyWiseau141/genshin-builds">
-              <button class="button">
-                <span class="icon">
-                  <i class="fab fa-github"></i>
-                </span>
+              <button class="button is-light">
                 <span>GitHub</span>
               </button>
             </a>
