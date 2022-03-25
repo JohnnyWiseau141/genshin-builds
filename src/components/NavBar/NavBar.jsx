@@ -11,12 +11,12 @@ const NavBar = ({ user, handleLogout }) => {
 
 	return (
 		<>
-			<nav className="navbar is-light is-fixed-top">
+			<nav className="navbar is-dark is-fixed-top">
 				<div className="navbar-brand">
 					<Link to="/" className="navbar-item">
 						{/* Temporary Image */}
 						<img src="https://64.media.tumblr.com/350e608e12f1bc97576f6dbdfd37cde0/45eaca76b40e52c7-d7/s500x750/48fa6df8385077a0a982cb2c746cf9ff4effd610.png"
-							alt="placeholder"
+							alt="Logo"
 							width="28"
 							height="34" />
 						Genshin Builds
@@ -33,7 +33,7 @@ const NavBar = ({ user, handleLogout }) => {
 						<Link className="navbar-item" to="/profile">My Profile</Link>
 						<Link className="navbar-item" to="/characters">Characters</Link>
 						<Link className="navbar-item" to="/weapons">Weapons</Link>
-						{/* <Link className="navbar-item" to="/publicBuilds">Public Builds</Link> commented out for production. to work on later */}
+						<Link className="navbar-item" to="/" disabled>Community</Link>
 						<div class="navbar-item has-dropdown is-hoverable">
 							<a class="navbar-link">
 								Docs
@@ -58,7 +58,7 @@ const NavBar = ({ user, handleLogout }) => {
 							<>
 								<div className="navbar-item">
 									<div className="buttons">
-										<Link className="button is-light" to="/login">Login</Link>
+										<Link className="button is-dark" to="/login">Login</Link>
 										<Link className="button is-info" to="/signup">Sign Up</Link>
 									</div>
 								</div>
@@ -68,7 +68,7 @@ const NavBar = ({ user, handleLogout }) => {
 							<>
 								<div className="navbar-item">
 									<div className="buttons">
-										<Link to='' className="button is-light" onClick={handleLogout}>Log Out</Link>
+										<Link to='' className="button is-dark" onClick={handleLogout}>Log Out</Link>
 									</div>
 								</div>
 							</>
