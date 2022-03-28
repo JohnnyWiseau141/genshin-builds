@@ -68,9 +68,9 @@ const App = () => {
 				<Route path='/profile' element={user ? <ProfilePage user={user} weapons={weapons} characters={characters} /> : <Navigate to='/login' />} />
 				<Route path='/characters' element={<CharacterIndex user={user} characters={characters} />} />
 				<Route path='/weapons' element={<WeaponIndex user={user} weapons={weapons} />} />
-				<Route path='/characterDetails' element={<CharacterDetails user={user} characters={characters} myProfile={myProfile} />} />
-				<Route path='/weaponDetails' element={<WeaponDetails user={user} weapons={weapons} />} />
-				<Route path='/createTeamBuild' element={<CreateTeamBuild user={user} weapons={weapons} characters={characters} />} />
+				<Route path='/character-details/:character' element={<CharacterDetails user={user} characters={characters} myProfile={myProfile} />} />
+				<Route path='/weapon-details/:weapon' element={<WeaponDetails user={user} weapons={weapons} />} />
+				<Route path='/create-team-build' element={<CreateTeamBuild user={user} weapons={weapons} characters={characters} />} />
 				<Route path='/publicBuilds' element={<PublicBuilds user={user}  weapons={weapons} characters={characters} />} />
 			</Routes>
 		</>
