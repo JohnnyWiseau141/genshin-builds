@@ -21,7 +21,7 @@ const NavBar = ({ user, handleLogout }) => {
 							height="34" />
 						Genshin Builds
 					</Link>
-					<a role="button" onClick={() => handleActive()} class="navbar-burger" aria-label="menu">
+					<a role="button" onClick={() => handleActive()} className="navbar-burger" aria-label="menu">
 						<span aria-hidden="true"></span>
 						<span aria-hidden="true"></span>
 						<span aria-hidden="true"></span>
@@ -34,19 +34,19 @@ const NavBar = ({ user, handleLogout }) => {
 						<Link className="navbar-item" to="/characters">Characters</Link>
 						<Link className="navbar-item" to="/weapons">Weapons</Link>
 						<Link className="navbar-item" to="/community" >Community</Link>
-						<div class="navbar-item has-dropdown is-hoverable">
-							<a class="navbar-link">
+						<div className="navbar-item has-dropdown is-hoverable">
+							<a className="navbar-link">
 								Docs
 							</a>
-							<div class="navbar-dropdown">
-								<a class="navbar-item">
+							<div className="navbar-dropdown">
+								<a className="navbar-item">
 									About us
 								</a>
-								<a class="navbar-item">
+								<a className="navbar-item">
 									Elements
 								</a>
-								<hr class="navbar-divider" />
-								<div class="navbar-item">
+								<hr className="navbar-divider" />
+								<div className="navbar-item">
 									Version 3.6.1
 								</div>
 							</div>

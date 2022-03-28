@@ -29,9 +29,9 @@ const Landing = ({ user }) => {
               </div>
             </>
           }
-          <p class="buttons mt-3 is-align-self-center">
+          <p className="buttons mt-3 is-align-self-center">
             <a href="https://github.com/JohnnyWiseau141/genshin-builds">
-              <button class="button is-light">
+              <button className="button is-light">
                 <span>GitHub</span>
               </button>
             </a>
