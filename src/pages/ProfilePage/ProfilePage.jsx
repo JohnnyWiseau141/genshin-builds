@@ -83,7 +83,7 @@ const ProfilePage = (props) => {
                   <br />
                   <Link
                      className="button is-primary"
-                     to='/createTeamBuild'
+                     to='/create-team-build'
                      onClick={addToCollection}
                      state={myCharacters}
                      id={styles.createBuild}
