@@ -10,7 +10,7 @@ const CharacterIndex = (props) => {
             <div key={character} className={styles.icon}>
               <Link to={`/character-details/${character}`} state={character}>
                 <img className={styles.characterIcon} src={`https://api.genshin.dev/characters/${character}/icon`} alt="icon" />
-                <div className={styles.box}>{character[0].toUpperCase() + character.slice(1,20)}</div>
+                <div className={styles.box}>{character[0].toUpperCase() + character.slice(1, 20)}</div>
               </Link>
             </div>
           )}
