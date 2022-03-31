@@ -12,8 +12,8 @@ const SelectTeam = (props) => {
 
    return (
       <>
-         <div className={styles.buildContainer}>
-            <div className={styles.addCharacters}>
+         <div className={styles.build_container}>
+            <div className={styles.add_characters}>
                {props.images.map((image, idx) =>
                <button
                   key={`btn${idx}`}
@@ -24,7 +24,7 @@ const SelectTeam = (props) => {
                         key={`img${idx}`} 
                         src={image}
                         alt="plus" 
-                        className={styles.plusImage} />
+                        className={styles.plus_image} />
                </button>
                   )}
             </div>

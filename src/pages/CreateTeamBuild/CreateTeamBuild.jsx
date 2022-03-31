@@ -59,7 +59,7 @@ const CreateTeamBuild = (props) => {
 
    return (
       <>
-         <main className={`has-text-centered ${styles.profile_page}`}>
+         <main className={`has-text-centered ${styles.background}`}>
             <SelectTeam user={user} myCharacters={myCharacters} handleClick={handleClick} setIsEdit={setIsEdit}
                boxOne={boxOne} boxTwo={boxTwo} boxThree={boxThree} boxFour={boxFour}
                selectedIdx={selectedIdx} images={images}

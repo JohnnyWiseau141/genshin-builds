@@ -1,4 +1,4 @@
-.addCharacters {
+.add_characters {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -10,12 +10,13 @@
   margin-right: 20px;
 }
 
-.plusImage {
-  height: 100px;
-  width: 100px;
+.plus_image {
+  height: 106px;
+  width: 106px;
 }
 
-.buildContainer {
+.build_container {
+  margin-top: 70px;
   display: flex; 
   justify-content: center;
   align-items: center;
