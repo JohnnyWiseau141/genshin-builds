@@ -5,11 +5,13 @@ import styles from './PublicBuilds.module.css'
 const PublicBuilds = (props) => {
    const [PublicTeamBuilds, setPublicTeamBuilds] = useState('temp')
    // get all users data and their teambuilds
-   
-   if (PublicTeamBuilds){
+
+   if (PublicTeamBuilds) {
       return (
          <>
-            <h1>Team Builds Shown Here</h1>
+            <div>
+               <h1>Team Builds Shown Here</h1>
+            </div>
          </>
       );
    } else {
