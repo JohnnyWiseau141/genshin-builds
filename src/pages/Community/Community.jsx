@@ -1,5 +1,6 @@
 import styles from './Community.module.css'
 import PublicBuilds from '../../components/PublicBuilds/PublicBuilds';
+import RecentNews from '../../components/RecentNews/RecentNews';
 
 const Community = (props) => {
    return (
@@ -7,6 +8,7 @@ const Community = (props) => {
          <div className={styles.background}>
             <div className={styles.news}>
                <h2 className='is-size-2'>Recent News</h2>
+               <RecentNews />
                {/* 
                   -  Put Genshin Impact updates/patches and maybe some stuff about our website and changes? 
                   -  Recent News will be a banner that will lead into another component display full information. Community page will show short info.
@@ -14,8 +16,8 @@ const Community = (props) => {
                */}
             </div>
 
+            {/* ---------------------------------------------------------------------*/}
 
-            {/* -------------------------------------------------------- */}
             <div className={styles.public_builds}>
                <h2 className='is-size-2'>Community Team Builds</h2>
                <PublicBuilds props={props} />

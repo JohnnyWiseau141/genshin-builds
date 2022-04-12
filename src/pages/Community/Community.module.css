@@ -7,8 +7,9 @@
 }
 .news{
    display: flex;
-   justify-content: center;
-   margin-top: 52px;
+   text-align: center;
+   flex-direction: column;
+   margin-top: 92px;
    height: 41%;
 }
 
@@ -18,4 +19,5 @@
    flex-direction: column;
    margin-top: 52px;
    height: 30%;
+   background-color: rgba(187, 187, 187, 0.726);
 }
