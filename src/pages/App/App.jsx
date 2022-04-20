@@ -12,7 +12,7 @@ import CharacterDetails from '../CharacterDetails/CharacterDetails'
 import WeaponDetails from '../WeaponDetails/WeaponDetails'
 import CreateTeamBuild from '../CreateTeamBuild/CreateTeamBuild'
 import Community from '../Community/Community'
-import AddNews from '../../components/AddNews/AddNews'
+import NewsForm from '../../components/NewsForm/NewsForm'
 import * as authService from '../../services/authService'
 import { getAllCharacters } from '../../services/characterService'
 import { getAllWeapons } from '../../services/weaponService'
@@ -73,7 +73,7 @@ const App = () => {
 				<Route path='/weapon-details/:weapon' element={<WeaponDetails user={user} weapons={weapons} />} />
 				<Route path='/create-team-build' element={<CreateTeamBuild user={user} weapons={weapons} characters={characters} />} />
 				<Route path='/community' element={<Community user={user} weapons={weapons} characters={characters} />} />
-				<Route path='/add-news' element={<AddNews user={user} />} />
+				<Route path='/news-form' element={<NewsForm user={user} />} />
 			</Routes>
 		</>
 	);

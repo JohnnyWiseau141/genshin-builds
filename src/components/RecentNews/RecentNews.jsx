@@ -15,7 +15,7 @@ const RecentNews = (props) => {
 
 
          {/* Here will be a redirect link to a new page, AddNews component, to add information for a new genshin impact update to be added.  */}
-         <Link to="/add-news" className="button is-primary">Add News</Link>
+         <Link to="/news-form" className="button is-primary">Add News</Link>
       </>
    );
 }
