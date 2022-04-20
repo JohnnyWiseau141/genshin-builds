@@ -1,4 +1,4 @@
-import styles from './AddNews.module.css'
+import styles from './NewsForm.module.css'
 import React, { useState } from 'react';
 
 
