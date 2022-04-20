@@ -1,4 +1,5 @@
 import styles from './RecentNews.module.css'
+import { Link } from 'react-router-dom';
 
 const RecentNews = (props) => {
    return (
@@ -14,7 +15,7 @@ const RecentNews = (props) => {
 
 
          {/* Here will be a redirect link to a new page, AddNews component, to add information for a new genshin impact update to be added.  */}
-         <button className="button is-primary">Add News</button>
+         <Link to="/add-news" className="button is-primary">Add News</Link>
       </>
    );
 }

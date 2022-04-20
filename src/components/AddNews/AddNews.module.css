@@ -1,0 +1,12 @@
+.background{
+   background-image: url("https://hdwallpapermarket.com/wp-content/uploads/2021/06/Genshin-Impact-Desktop-Wallpaper-1920x1080-1536x864.jpg");
+   width: 100%;
+   height: 100vh;
+   background-size: cover;
+   overflow-y: auto;
+}
+.form{
+   display: flex;
+   justify-content: center;
+   margin-top: 90px;
+}
